@@ -1,0 +1,1737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Puneet Mann, Mortgage Agent Level 2 | The Mortgage Mann</title>
+<meta name="description" content="Puneet Mann is a Mortgage Agent Level 2 in Brampton helping business owners, investors, first-time buyers and families moving home across the GTA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Mona+Sans:ital,wdth,wght@0,75..125,300..900;1,75..125,300..900&display=swap">
+<style>
+/* =========================================================
+   Tokens. Reference system: landonorris.com (OFF+BRAND).
+   Roles copied from the reference, values sampled from
+   Puneet's own branding photos (Jas session, 2026).
+   ========================================================= */
+:root{
+  /* primitives */
+  --wall:#f1f1ef;        /* studio wall, photo 33 */
+  --wall-2:#e4e2dc;
+  /* blue + gold aligned to the brokerage's brand (Keystone / DLC), Fahad 2026-09-24: "replace blue
+     with blue, gold with gold". Sampled from their banner. Was navy #1c2a48 + brass #d6a466 from his photos. */
+  --navy:#1a4480;        /* Keystone royal blue */
+  --navy-2:#22508f;
+  --navy-deep:#123262;   /* same blue, deeper */
+  --brass:#d3b65a;       /* Keystone gold (mid gradient), 4.9:1 on the blue */
+  --brass-deep:#9a741f;  /* Keystone deep gold #c59633 darkened to stay readable on the wall (3.8:1; theirs is 2.4) */
+  --ink:#16171b;
+  --ink-2:#3a3b41;
+  --cream:#f1f1ef;
+
+  /* semantic, flipped by .is-dark on <html> */
+  --bg:var(--wall);
+  --fg:var(--ink);
+  --fg-2:var(--ink-2);
+  --line:rgba(26,68,128,.13);
+  --plan:rgba(26,68,128,.075);
+  --mapc:rgba(26,68,128,.1);
+
+  --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  /* Bodoni, repaired (Fahad 2026-09-24, option 1 of 9): at weight 400 the font picked its thinnest
+     optical size at headline scale and the hairlines vanished on the blue. Heavier weight + a small
+     optical size keeps the look with sturdy thin strokes. Other 8 pairings: 06 - Archive/prototype-v26 */
+  --acc-w:600;--acc-var:"opsz" 14;
+  --serif-w:600;--serif-var:"opsz" 14;
+  --sans:"Mona Sans","Helvetica Neue",Arial,sans-serif;
+
+  --gutter:clamp(16px,2.6vw,40px);
+  --body:18px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+html.is-dark{
+  --bg:var(--navy);
+  --fg:var(--cream);
+  --fg-2:#dfe3ec;
+  --line:rgba(241,241,239,.16);
+  --plan:rgba(211,182,90,.13);
+  --mapc:rgba(211,182,90,.2);
+}
+*{box-sizing:border-box}
+html{background:var(--bg);transition:background-color .9s var(--ease)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 var(--body)/1.6 var(--body-face,var(--sans));font-variation-settings:var(--body-var,"wdth" 100);-webkit-font-smoothing:antialiased;transition:background-color .9s var(--ease),color .9s var(--ease);overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* type system: the reference mixes a heavy wide sans with a
+   sharp high-contrast serif for the accent words */
+.caps{font-family:var(--caps-face,var(--sans));font-weight:var(--caps-w,800);font-variation-settings:var(--caps-var,"wdth" 112);text-transform:uppercase;letter-spacing:var(--caps-track,-.02em);line-height:.9}
+.acc{font-family:var(--acc-face,var(--serif));font-weight:var(--acc-w,400);font-style:var(--acc-style,normal);font-variation-settings:var(--acc-var,normal);text-transform:uppercase;letter-spacing:-.01em;color:var(--brass)}
+html:not(.is-dark) .acc{color:var(--brass-deep)}
+/* WHITE THROUGHOUT (Fahad 2026-09-25). Small gold text needs a darker gold on white: #86651a is 4.8:1 on the wall (brass-deep is 3.8:1, fine for headlines only) */
+html:not(.is-dark) .slide .of,html:not(.is-dark) .slide .call,html:not(.is-dark) .ab-b .lic a{color:#86651a}
+html.all-white .help .vig{display:none}
+/* SUBTLE NAVY (Fahad 2026-09-25: black type stays; "more subtle additions of the blue, it's there but very subtle"). The logo's navy #034383 (8.7:1 on the wall) on the small things only:
+   text links, the hero's small labels, the licence fine print; hairlines keep a navy tint; the hero button is already navy */
+html:not(.is-dark) .textlink,html:not(.is-dark) .split-copy .micro,html:not(.is-dark) .split-copy .langs,html:not(.is-dark) .ab-b .lic,html:not(.is-dark) .foot .licence{color:#034383}
+/* ALL BLUE (Fahad 2026-09-25: "replace with blue to match the logo's colour scheme"): chosen from the Background bar; every section on the blue, hero included */
+html.all-blue .sheet,html.all-blue[data-intro="2"] .split-copy{background:var(--navy);color:var(--cream)}
+html.all-blue .split-copy .micro,html.all-blue .split-copy p,html.all-blue .split-copy .langs{color:#dfe3ec}
+html.all-blue .split-copy .btn{border-color:var(--cream);color:var(--cream)}
+html.all-blue .split-copy .btn.solid{background:var(--brass);border-color:var(--brass);color:var(--navy-deep)}
+html.all-blue.mark-ink .mark{color:var(--fg)}
+html.all-blue .svc-item .n,html.all-blue .svc-item .call,html.all-blue .book-slot .todo{color:var(--brass)}
+html.all-blue .svc-list .svc-item,html.all-blue .svc-list .svc-item:last-child,html.all-blue .svc-tabs .tabs{border-top-color:rgba(241,241,239,.18);border-bottom-color:rgba(241,241,239,.18)}
+html.all-blue .svc-item figure{background:var(--navy-deep)}
+html.all-blue .svc-tabs .tabs button[aria-selected="true"]{border-bottom-color:var(--brass)}
+html.all-blue .book-slot{border-color:rgba(241,241,239,.3);background:rgba(255,255,255,.05)}
+/* BACKGROUND TEST (Fahad 2026-09-25, palette "Puneet Background", 04 - Logo/Puneet Background.pdf): ?bg=0-4, bar at the bottom, switches live */
+.bg-switch{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:56;display:flex;gap:4px;align-items:center;padding:6px 6px 6px 14px;border-radius:8px;background:#16171b;color:#f1f1ef;max-width:calc(100vw - 24px);overflow-x:auto}
+.bg-switch>span{margin-right:8px;white-space:nowrap}
+.bg-switch button{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:40px;padding:0 10px;border-radius:6px;font:700 12.5px var(--sans);letter-spacing:.04em;white-space:nowrap}
+.bg-switch button i{width:18px;height:18px;border-radius:4px;border:1px solid rgba(255,255,255,.35)}
+.bg-switch button[aria-pressed="true"]{background:#f1f1ef;color:#16171b}
+.bg-switch button:focus-visible{outline:2px solid var(--brass)}
+@media (max-width:620px){.bg-switch>span{display:none}.bg-switch button{padding:0 7px;font-size:11px}.bg-switch button b{display:none}}
+.micro{font:700 12.5px/1.35 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+
+/* ---------------- header ---------------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:flex-start;justify-content:space-between;padding:calc(var(--gutter) * .7 + env(safe-area-inset-top,0px)) var(--gutter) 0;pointer-events:none}
+.hdr > *{pointer-events:auto}
+/* WHITE HEADER THROUGHOUT (Fahad 2026-10-05): solid white with dark lettering at every width, whatever section is underneath. SAME as site.css */
+.hdr{background:#fff;border-bottom:1px solid rgba(26,68,128,.13);padding-bottom:calc(var(--gutter) * .55);align-items:center}
+.hdr .mark,html.mark-ink .hdr .mark{color:var(--ink)}
+.hdr .burger{border-color:var(--ink);color:var(--ink)}
+.mark{display:block;text-decoration:none;color:var(--fg);transition:color .9s var(--ease)}
+.mark .l1{display:block;font:var(--serif-w,400) clamp(17px,1.6vw,22px)/.9 var(--serif);font-variation-settings:var(--serif-var,normal);text-transform:uppercase;letter-spacing:-.01em}
+.mark .l2{display:block;font:var(--caps-w,800) clamp(22px,2.1vw,30px)/.86 var(--caps-face,var(--sans));font-variation-settings:var(--caps-var,"wdth" 118);text-transform:uppercase;letter-spacing:-.03em}
+.hdr .right{display:flex;gap:10px;align-items:center}
+html.mark-ink .mark{color:var(--ink)}
+.dlc{position:fixed;left:0;top:0;z-index:30;pointer-events:none;display:none}
+html[data-intro="2"] .dlc{display:block}
+.dlc-in{width:min(760px,76svh);opacity:0;visibility:hidden}
+/* transparent (Fahad): the REVERSED logo, navy lettering set in white, because the original navy lettering disappears on the page blue */
+.dlc-in img{display:block;width:100%;height:auto}
+@media (max-width:760px){.dlc-in{width:min(calc(100vw - 24px),60svh)}}
+/* ---- LOADING SCREEN (Fahad 2026-09-25: the gold key, every visit, original logo colours on black) ---- */
+.loader{position:fixed;inset:0;z-index:200;background:radial-gradient(ellipse 60% 55% at 50% 50%,#1a2130 0,#0a0d13 55%,#000 100%);transition:opacity .6s var(--ease),visibility .6s}
+.loader canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.loader .ld-flat{position:absolute;left:50%;top:50%;width:min(420px,70vw);transform:translate(-50%,-50%);opacity:0;transition:opacity .5s var(--ease)}
+.loader.flat .ld-flat{opacity:1}
+.loader .skip{position:absolute;right:var(--gutter);bottom:calc(var(--gutter) + env(safe-area-inset-bottom,0px));color:#8f98a8;background:none;border:0;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:10px}
+.loader.done{opacity:0;visibility:hidden;pointer-events:none}
+html.loading,html.loading body{overflow:hidden}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:6px;background:var(--brass);color:var(--navy-deep);font:800 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer}
+.pill svg{width:15px;height:15px}
+.burger{width:44px;height:44px;border-radius:6px;border:1.5px solid var(--fg);background:transparent;color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:color .9s var(--ease),border-color .9s var(--ease)}
+.burger i{display:block;width:18px;height:1.5px;background:currentColor;box-shadow:0 5px 0 currentColor;transform:translateY(-2.5px)}
+.menu{position:fixed;inset:0;z-index:60;background:var(--navy-deep);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:var(--gutter);visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease),visibility 0s .7s}
+.menu.open{visibility:visible;clip-path:inset(0 0 0 0);transition:clip-path .7s var(--ease)}
+.menu nav a{display:block;text-decoration:none;font-size:clamp(44px,8vw,110px);padding:.04em 0}
+.menu nav a:hover .acc,.menu nav a:focus-visible .acc{color:var(--cream)}
+.menu .close{position:absolute;top:calc(var(--gutter) * .7);right:var(--gutter);background:transparent;border:1.5px solid var(--cream);color:var(--cream);width:44px;height:44px;border-radius:6px;font-size:22px;cursor:pointer}
+.menu .foot{margin-top:40px;color:#c9cfdc;font-size:14px;max-width:560px}
+
+/* ---------------- the road: ONE winding road down the whole page ----------------
+   Fahad 2026-09-23: "follow one spiral throughout, showing the journey going down it".
+   A single road with its lot lines winds from the top of the page to the bottom, anchored to
+   the page. It is always faintly visible; the stretch already travelled is drawn in brass up to
+   a point just below the middle of the screen, and retracts when you scroll back. Lines fade
+   with the page colour (navy on white, brass on navy). The hero card carries an exact copy. */
+#road,#trail{position:absolute;left:0;top:0;width:100%;z-index:0;pointer-events:none;overflow:visible;opacity:0;transition:opacity .7s var(--ease)}
+/* hidden until How I can help fills the screen (its start then sits on the top edge): Fahad could
+   see the road's cut end rising up the screen on the way in */
+html.road-on #road,html.road-on #trail,html.road-on #town{opacity:1}
+/* road switched OFF for now (Fahad 2026-09-24): set ROAD_OFF=false in the script to bring it back */
+html.road-off #road,html.road-off #trail,html.road-off #town{display:none}
+#trail{will-change:transform} /* own layer: the trail repaints every scroll frame, the page must not */ /* own layer: the trail repaints every scroll frame, the page must not */
+#road .faint{fill:none;stroke:var(--mapc);stroke-width:1;transition:stroke .9s var(--ease)}
+#trail .trail{fill:none;stroke:var(--brass);stroke-width:2;stroke-linecap:round}
+html:not(.is-dark) #trail .trail{stroke:var(--brass-deep)}
+/* the neighbourhood (Fahad 2026-09-24: "I don't like it just being one road"): site-plan buildings on the
+   lots beside the road, each drawing itself in brass when the trail reaches it, undrawing on the way back.
+   Drawn on one screen-sized canvas (as SVG, hundreds of animating lots cost 4-10 dropped frames per pass). */
+#town{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity .7s var(--ease)}
+main,.foot{position:relative;z-index:1}
+/* ---------------- plan lines (survey lot lines) ---------------- */
+.plan{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+.plan path{fill:none;stroke:var(--plan);stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke .9s var(--ease)}
+.plan.glow path{stroke:var(--brass)}
+.plan.glow{-webkit-mask-image:radial-gradient(circle 190px at var(--mx,-999px) var(--my,-999px),#000 0,rgba(0,0,0,.55) 45%,transparent 100%);mask-image:radial-gradient(circle 190px at var(--mx,-999px) var(--my,-999px),#000 0,rgba(0,0,0,.55) 45%,transparent 100%)}
+
+/* ---------------- 1+2. intro: the hero shrinks into a card ----------------
+   Reference behaviour (landonorris.com): the hero never scrolls away. The whole
+   hero sheet scales down into a centred card while the dark stage behind it,
+   carrying the marquee, is revealed around it. Our own mark at the end: a brass
+   survey boundary drawn around the card, with a pin at each corner. */
+.intro{position:relative;z-index:2;height:100svh;min-height:620px;overflow:hidden}
+.sheet{position:absolute;inset:0;background:var(--wall);color:var(--ink);overflow:hidden;transform-origin:50% 50%;will-change:transform;z-index:2}
+/* Hero = layout A "Split" with photo 8 (Fahad 2026-09-24, from hero-options.html): calm and
+   neutral. Name and one line on the left, the whole photo (real office, no cut-out) on the right. */
+.split-copy{position:absolute;left:0;top:0;bottom:0;width:50%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gutter) clamp(40px,8svh,90px);z-index:2}
+.split-copy .micro{color:var(--ink-2);margin-bottom:14px}
+.split-copy h1{font-size:clamp(46px,6.4vw,112px);margin:0 0 22px}
+.split-copy p{font-size:18px;line-height:1.55;color:var(--ink-2);max-width:460px;margin:0 0 26px}
+.split-copy .acts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.split-copy .btn{display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border-radius:6px;font:800 14px var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.split-copy .btn.solid{background:var(--navy);border-color:var(--navy);color:var(--cream)}
+.split-copy .langs{color:var(--ink-2);font-weight:600;letter-spacing:.06em}
+.split-copy .micro,.split-copy .langs{display:block}
+/* the NAME is centred between the top bar and the bottom of the screen on every screen size (Fahad 2026-09-29:
+   centred on his laptop, low on his monitor, because the words were pinned to the bottom by a fixed gap) */
+@media (min-width:761px){
+  .split-copy{display:grid;grid-template-rows:1fr auto 1fr;justify-content:stretch;padding-top:72px;padding-bottom:0}
+  .split-copy .top{align-self:end}
+  .split-copy h1{margin:0}
+  .split-copy .bot{align-self:start;padding-top:22px}
+}
+@media (min-width:1180px){.split-copy{padding-top:var(--hdr-h,93px)}}
+.split-photo{position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden}
+.split-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.hdr .scrollcue{display:none}
+@media (max-width:760px){
+  .split-photo{width:100%;bottom:auto;height:52svh}
+  .split-copy{width:100%;top:auto;height:48svh;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+  .split-copy h1{font-size:48px;margin-bottom:12px}
+  .split-copy p{font-size:16px;margin-bottom:16px}
+  .split-copy .btn{min-height:46px;padding:0 16px;font-size:13px}
+}
+.card{position:absolute;left:var(--gutter);bottom:calc(var(--gutter) + env(safe-area-inset-bottom,0px));width:150px;border:1.5px solid rgba(26,68,128,.14);border-radius:6px;padding:12px;background:rgba(241,241,239,.75);backdrop-filter:blur(6px);font-size:13.5px;line-height:1.4}
+.card .micro{display:block;margin-bottom:10px;color:var(--ink-2)}
+.card a{display:block;text-decoration:none;font-weight:700;font-size:15px;padding:6px 0;border-top:1px solid rgba(26,68,128,.14)}
+.card .idline{display:block;margin-top:10px;padding-top:10px;border-top:1px solid rgba(26,68,128,.14);font:700 11px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.card .langs{display:block;margin-top:10px;padding-top:10px;border-top:1px solid rgba(26,68,128,.14);color:var(--ink-2)}
+.bound{position:absolute;inset:0;z-index:3;pointer-events:none;width:100%;height:100%}
+html[data-intro] .bound{display:none}
+.imap{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:none}
+html[data-intro="1"] .imap{display:block}
+.veil{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0}
+html[data-intro="3"] .veil{background:var(--navy)}
+html[data-intro="4"] .veil{background:#07101f}
+html[data-intro="2"] .sheet{background:transparent}
+html[data-intro="2"] .split-copy{background:var(--wall)}
+html[data-intro="4"] .help{z-index:2}
+html[data-intro="4"] .help.before{background:var(--navy)}
+.bound rect{fill:none;stroke:var(--brass);stroke-width:1.5}
+.bound circle{fill:var(--navy);stroke:var(--brass);stroke-width:1.5}
+/* Around the card: nothing but the brass frame (Fahad 2026-09-24, option D "for now"). The marquee
+   that sat behind the card could not be read. Options A-C (situations at the corner pins, trust facts,
+   marquee moved into the clear space) are in 06 - Archive/prototype-v23-card-stage-ABCD-2026-09-24.html */
+.intro .tag{position:absolute;bottom:calc(var(--gutter) + 8px);left:0;right:0;text-align:center;color:#c9cfdc;z-index:4;opacity:0}
+.scrollcue{position:absolute;left:50%;top:calc(var(--gutter) * .7 + 14px);transform:translateX(-50%);color:var(--fg-2)}
+@media (max-width:760px){
+  .card{width:auto;right:var(--gutter);left:var(--gutter);display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 12px}
+  .card .micro,.card .langs,.card .idline{margin:0;padding:0;border:0;flex-basis:100%}
+  .card a{border:0;padding:4px 0}
+  .scrollcue,.intro .tag{display:none}
+}
+
+/* ---------------- 3. situations: immersive fly-through ----------------
+   The section pins full screen. "How I can help" flies past the camera, then each
+   situation arrives out of the depth (small, blurred) and leaves by flying past
+   (large, dissolving) while the survey lot lines zoom and turn behind, like flying
+   over a property map. Each is an introduction only; the detail lives on its page.
+   Without JS or with reduced motion the four stack as a readable list. */
+.help{position:relative;overflow:hidden;margin-top:-100svh} /* sits exactly on the intro's final, empty frame: the section comes up in place instead of scrolling in */
+.help .vig{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 50%,transparent 38%,rgba(9,28,56,.88) 100%)}
+.slide{position:relative;padding:8vh var(--gutter);border-top:1px solid var(--line)}
+.slide .big{display:block;width:clamp(200px,28vw,440px);height:auto;aspect-ratio:1;margin-bottom:10px;overflow:visible}
+/* the situation drawn in the same brass line as the road (Fahad 2026-09-24: replaces the numbers) */
+.slide .big path{fill:none;stroke:var(--brass);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* the drawings act out each situation once drawn (Fahad 2026-09-24: "more real animations"):
+   lit windows are soft brass fills behind the line work; small signs are set in the UI face */
+.slide .big .glow{fill:var(--brass);stroke:none;opacity:.26}
+.slide .big .tx{fill:var(--brass);font:800 8.4px var(--sans);letter-spacing:.12em;text-anchor:middle}
+.slide .big .tx.name{font-size:15px;letter-spacing:.2em}
+.slide .big .box path{stroke-width:1.8}
+.slide .big .leaf path{vector-effect:non-scaling-stroke}
+/* 3D sample (Fahad 2026-09-24, situation 03 only): a lit architectural model in place of the drawing.
+   Off with ?three=0, and never for reduced motion or without WebGL (the line drawing stays). */
+.slide .big3d{position:relative}
+.slide .big3d canvas{position:absolute;inset:-12%;width:124%!important;height:124%!important;display:block}
+.slide .of{display:block;color:var(--brass);margin-bottom:18px}
+.slide h3{font-size:clamp(48px,7.4vw,132px);line-height:.9;margin:0 0 26px}
+.slide p{font-size:clamp(18px,1.5vw,23px);line-height:1.55;margin:0 0 30px;max-width:600px;color:var(--fg-2)}
+.slide .acts{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.slide .call{font:700 16px var(--sans);text-decoration:none;color:var(--brass)}
+.slide .call:hover{text-decoration:underline;text-underline-offset:4px}
+/* JS on: one full-screen stage, layers stacked in depth */
+.help.js{height:100svh}
+.help.js .stage3d{position:absolute;inset:0}
+.help.js .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;border:0;padding:0 var(--gutter);will-change:opacity}
+.help.js .slide{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(20px,4vw,60px);padding:0 var(--gutter) 0 calc(var(--gutter) + clamp(0px,5vw,90px))}
+.help.js .slide .copy{position:relative;z-index:2;max-width:760px;will-change:transform,opacity,filter;backface-visibility:hidden;transform-origin:30% 50%}
+.help.js .slide .big{position:relative;justify-self:end;margin:0;width:min(60svh,32vw);order:2;will-change:transform,opacity;backface-visibility:hidden}
+@media (max-width:760px){
+  .help.js .slide{grid-template-columns:1fr;align-content:center;gap:6px;padding:64px var(--gutter) 100px} /* 100px bottom = room for the Keystone badge (bottom-left) */
+  .help.js .slide .big{order:0;justify-self:start;width:150px}
+  .help.js .slide .big3d{width:210px}
+  .slide .big3d canvas{inset:0;width:100%!important;height:100%!important}
+  .slide h3{font-size:clamp(38px,11vw,56px)}
+}
+/* ---- How I can help: LAYOUT (Fahad 2026-09-25: liked Cards + the fly-through, asked for a hybrid), ?help=hybrid|cards|now ---- */
+.help-switch{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;transform:translate(-50%,160%);display:flex;gap:4px;align-items:center;padding:6px 6px 6px 14px;border-radius:8px;background:rgba(18,50,98,.94);border:1px solid rgba(211,182,90,.5);color:var(--cream);transition:transform .45s var(--ease)}
+.help-switch.on{transform:translate(-50%,0)}
+.help-switch span{margin-right:8px;white-space:nowrap}
+.help-switch a{display:grid;place-items:center;min-height:40px;padding:0 12px;border-radius:6px;font:800 13px var(--sans);text-decoration:none;color:var(--cream);white-space:nowrap}
+.help-switch a[aria-current]{background:var(--brass);color:var(--navy-deep)}
+@media (max-width:620px){.help-switch span{display:none}.help-switch a{padding:0 7px;font-size:11.5px}}
+/* CARDS: the situation on a centred card. Deck: each new card slides up over the last. HYBRID (Fahad 2026-09-25): the same card, arriving from the depth and flying past like the fly-through */
+.help.js.hl-cards .slide{inset:14svh calc(var(--gutter) + 2vw) 9svh;border-radius:28px;background:var(--navy-2);border:1px solid rgba(211,182,90,.35);grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);padding:0 clamp(28px,5vw,80px);gap:clamp(24px,4vw,64px);transform-origin:50% 0;overflow:hidden}
+.help.js.hl-cards .slide .big{order:0;justify-self:center;width:min(52svh,30vw)}
+.hl-cards .slide h3{font-size:clamp(44px,5.2vw,96px)}
+.hl-cards .slide p{font-size:clamp(17px,1.25vw,20px)}
+.help.js.hl-hybrid .slide{transform-origin:50% 50%}
+/* PHOTOS in place of the 3D scenes (Fahad 2026-09-25: "pictures instead of 3d object animations"). PLACEHOLDERS: replace before launch */
+.slide .pic{margin:0;overflow:hidden;border-radius:18px;background:var(--navy-deep);border:1px solid rgba(211,182,90,.45)}
+.slide .pic img{display:block;width:100%;height:100%;object-fit:cover;will-change:transform}
+.help.js .slide .big.pic{width:min(52svh,30vw);aspect-ratio:4/5;height:auto}
+.help.js.hl-cards .slide .big.pic{align-self:stretch;justify-self:stretch;width:auto;height:auto;aspect-ratio:auto;margin:0 0 0 calc(-1 * clamp(28px,5vw,80px));border:0;border-radius:27px 0 0 27px} /* flies straight at you, not from the top edge like the deck */
+@media (max-width:760px){
+  .help.js.hl-cards .slide{inset:70px 12px 96px;padding:22px 20px;align-content:start;gap:4px;grid-template-columns:1fr}
+  .help.js.hl-cards .slide .big{justify-self:start;width:140px}
+  .help.js.hl-cards .slide .big3d{width:180px}
+  .hl-cards .slide h3{font-size:clamp(34px,10vw,48px);margin-bottom:14px}
+  .hl-cards .slide p{font-size:16px;margin-bottom:16px}
+  .help.js.hl-hybrid .slide{align-content:center}
+  .help.js .slide .big.pic{width:100%;height:28svh;aspect-ratio:auto;justify-self:stretch}
+  .help.js.hl-cards .slide .big.pic{margin:-22px -20px 14px;height:28svh;border-radius:27px 27px 0 0}
+}
+/* ---- HOW I CAN HELP, neutral (Fahad 2026-09-25): a plain section, no pinning, one-by-one reveal ---- */
+.svc{display:none;position:relative;z-index:1;padding:16vh var(--gutter) 14vh}
+html[data-svc] .svc{display:block}
+html[data-svc] .help{display:none}
+.svc-head{max-width:780px;margin-bottom:7vh}
+.svc-head h2{font-size:clamp(44px,6vw,100px);margin:0 0 22px}
+.svc-head p{font-size:clamp(18px,1.4vw,21px);line-height:1.55;color:var(--fg-2);max-width:560px;margin:0 0 16px}
+.svc-facts{list-style:none;margin:30px 0 30px;padding:0;max-width:560px;border-top:1px solid rgba(3,67,131,.16)}
+.svc-facts li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;padding:13px 0;border-bottom:1px solid rgba(3,67,131,.16);font-size:15px;line-height:1.4;color:var(--fg-2)}
+.svc-facts b{color:var(--fg);font-weight:700}
+.svc-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.svc-cta span{font-weight:600;color:var(--fg)}
+@media (max-width:560px){.svc-facts li{grid-template-columns:1fr;gap:2px}}
+.svc-item figure{margin:0;overflow:hidden;border-radius:14px;background:#e3e2de}
+.svc-item img{display:block;width:100%;height:100%;object-fit:cover}
+.svc-item .n{display:block;color:#86651a;margin-bottom:10px}
+.svc-item h3{font:700 clamp(22px,1.8vw,28px)/1.15 var(--sans);letter-spacing:-.01em;margin:0 0 12px;color:var(--fg)}
+.svc-item p{font-size:17px;line-height:1.6;color:var(--fg-2);margin:0 0 22px}
+.svc-item .acts{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center}
+.svc-item .call{font:700 15px var(--sans);color:#86651a;text-decoration:none}
+.svc-item .call:hover{text-decoration:underline;text-underline-offset:4px}
+/* GRID: four cards in a row */
+.svc-grid .svc-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.2vw,36px)}
+.svc-grid figure{aspect-ratio:4/3;margin-bottom:22px}
+@media (max-width:1100px){.svc-grid .svc-items{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}}
+@media (max-width:620px){.svc-grid .svc-items{grid-template-columns:1fr}}
+/* LIST: heading held on the left (CSS sticky, the page still scrolls normally), four rows on the right */
+html[data-svc] .svc.svc-list{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:6vw;align-items:start}
+.svc-list .svc-head{position:sticky;top:13vh;margin:0}
+/* shorter laptops: the held column must fit the screen, or its button is cut off while it is held */
+@media (min-width:861px) and (max-height:860px){.svc-list .svc-head h2{font-size:clamp(38px,3.8vw,64px);margin-bottom:28px}.svc-list .svc-head p{font-size:17px;margin-bottom:12px}.svc-list .svc-facts{margin:20px 0}.svc-list .svc-facts li{padding:9px 0}.svc-list .svc-cta{gap:10px}}
+.svc-list .svc-head h2{font-size:clamp(40px,4.4vw,76px);margin-bottom:clamp(30px,4.5svh,48px)} /* more air between heading and subcopy (Fahad 2026-09-25) */ /* must wrap inside its column, or the held heading runs under the photos */
+.svc-list .svc-item{display:grid;grid-template-columns:minmax(150px,.75fr) minmax(0,1fr);gap:clamp(20px,2.4vw,36px);padding:36px 0;border-top:1px solid rgba(3,67,131,.16)}
+.svc-list .svc-item:last-child{border-bottom:1px solid rgba(3,67,131,.16)}
+.svc-list figure{aspect-ratio:4/3}
+@media (max-width:860px){html[data-svc] .svc.svc-list{grid-template-columns:1fr;gap:0}.svc-list .svc-head{position:static;margin-bottom:5vh}}
+@media (max-width:560px){.svc-list .svc-item{grid-template-columns:1fr;gap:16px}}
+/* TABS: four tabs, one situation shown at a time, photo beside the words */
+.svc-tabs .tabs{display:flex;border-bottom:1px solid rgba(3,67,131,.16);margin-bottom:5vh;overflow-x:auto;scrollbar-width:none}
+.svc-tabs .tabs button{all:unset;cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:16px 26px 18px 0;margin-right:26px;font:700 17px var(--sans);color:var(--fg-2);border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.svc-tabs .tabs button .micro{color:inherit}
+.svc-tabs .tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:#86651a}
+.svc-tabs .tabs button:focus-visible{outline:2px solid #86651a;outline-offset:2px}
+.svc-tabs .svc-item{display:none;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,80px);align-items:center}
+.svc-tabs .svc-item.on{display:grid}
+.svc-tabs figure{aspect-ratio:4/3}
+.svc-tabs .svc-item .n{display:none}
+.svc-tabs .svc-item h3{font-size:clamp(30px,3vw,46px);margin-bottom:18px}
+.svc-tabs .svc-item p{font-size:clamp(18px,1.35vw,21px);max-width:520px}
+/* COMPACT (Fahad 2026-09-25: "far too big of a page", was ~1330px tall at 1440x900): one screen. Heading beside the intro, less padding, shorter photo */
+html[data-svc] .svc.svc-tabs{padding:10vh var(--gutter)}
+.svc-tabs .svc-head{max-width:none;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:4vh}
+.svc-tabs .svc-head h2{font-size:clamp(40px,4.6vw,76px);margin:0}
+.svc-tabs .svc-head p{font-size:17px;margin:0 0 10px;max-width:620px}
+.svc-tabs .svc-head p:last-child{margin-bottom:0}
+.svc-tabs .tabs{margin-bottom:3.5vh}
+.svc-tabs .tabs button{padding:12px 22px 14px 0;margin-right:22px;font-size:16px}
+.svc-tabs .svc-item{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.svc-tabs figure{aspect-ratio:16/10;max-height:44svh}
+.svc-tabs .svc-item h3{font-size:clamp(26px,2.4vw,38px);margin-bottom:12px}
+.svc-tabs .svc-item p{font-size:17px;margin-bottom:18px}
+@media (max-width:860px){.svc-tabs .svc-head{grid-template-columns:1fr;gap:14px}html[data-svc] .svc.svc-tabs{padding:8vh var(--gutter)}}
+/* INTRO = one line under the heading (Fahad 2026-09-29 picked "Line under" from 4; the two paragraphs to the right were dropped) */
+.svc-tabs .svc-head{display:block}
+.svc-item figure.ph{display:grid;place-items:center;border:1.5px dashed rgba(3,67,131,.28);background:#e8e7e3}
+.svc-item figure.ph span{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#034383;opacity:.7}
+.svc-tabs .svc-head .sub-line{margin:18px 0 0;font-size:clamp(18px,1.4vw,21px);line-height:1.5;color:var(--fg-2);max-width:none}
+@media (min-width:761px) and (max-width:1180px){.svc-tabs .tabs button{padding-right:12px;margin-right:12px;font-size:15px}} /* six tabs on one row at 1024 (2026-09-29) */
+@media (max-width:760px){.svc-tabs .svc-item.on{grid-template-columns:1fr;gap:24px}.svc-tabs .tabs button{font-size:15px;padding-right:14px;margin-right:14px}}
+/* PHONES: six tabs as a 2x3 grid so every situation is visible at once (Fahad 2026-09-29; was one row scrolling sideways, ~2.5 of 6 showing) */
+@media (max-width:760px){
+  .svc-tabs .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;border-bottom:0;overflow:visible;margin-bottom:24px}
+  .svc-tabs .tabs button{box-sizing:border-box;margin:0;padding:10px 12px;min-height:52px;align-items:center;gap:8px;border:1px solid rgba(3,67,131,.2);border-radius:8px;font-size:14.5px;line-height:1.25;white-space:normal}
+  .svc-tabs .tabs button[aria-selected="true"]{border-color:#86651a;box-shadow:inset 0 0 0 1px #86651a;background:rgba(134,101,26,.07)}
+}
+
+/* CARDS (Fahad 2026-09-29): Apple-style card strip, from a 21st.dev component rebuilt without React.
+   Tall cards, category + title on top, round white arrow bottom-right that turns on hover, the card grows 2% on hover,
+   back/next arrows that grey out at the ends (placed in the heading row so they never sit under the Keystone badge). */
+.svc-cards .svc-items,.svc-cards .tabs{display:none}
+.cards,.cards-nav{display:none}
+html[data-svc] .svc.svc-cards{padding:10vh var(--gutter) 9vh}
+.svc-cards .svc-head{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;align-items:end;max-width:none;margin-bottom:clamp(18px,3vh,30px)}
+.svc-cards .svc-head h2,.svc-cards .svc-head .sub-line{grid-column:1}
+.svc-cards .svc-head .cards-nav{grid-column:2;grid-row:1 / span 2;align-self:end}
+.svc-cards .svc-head h2{font-size:clamp(40px,4.6vw,76px);margin:0}
+.svc-cards .svc-head .sub-line{margin:18px 0 0;font-size:clamp(18px,1.4vw,21px);line-height:1.5;color:var(--fg-2);max-width:none}
+.svc-cards .cards-nav{display:flex;gap:8px;flex:none}
+.cards-nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(3,67,131,.22);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 1px 2px rgba(22,23,27,.06);transition:opacity .2s,background-color .2s}
+.cards-nav button:hover:not(:disabled){background:#f6f6f4}
+.cards-nav button:disabled{opacity:.4;cursor:default}
+.cards-nav svg{width:17px;height:17px}
+/* FOUR at a time, fitted to the width; Next shows the last two, Back returns; the switch is INSTANT, no sliding and no dragging
+   (Fahad 2026-09-29: "4 tiles, just enough that fit, then a next button you can click for 2 more ... remove the sliding effect").
+   Tablets show 3 and phones 2 (4 would be unreadable there), paged the same way. */
+.svc-cards .cards{display:block}
+.cards-track{--per:4;--gap:24px;container-type:inline-size;display:grid;grid-template-columns:repeat(var(--per),minmax(0,1fr));gap:var(--gap);padding:10px 0 12px}
+@media (max-width:1099px){.cards-track{--per:3;--gap:18px}}
+@media (max-width:760px){.cards-track{--per:2;--gap:12px}}
+.scard{--h:calc((100cqi - (var(--per) - 1) * var(--gap)) / var(--per) / .617);height:min(var(--h),64svh);container-type:inline-size;position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(26,68,128,.13);background:var(--navy-deep);color:#fff;text-decoration:none;display:flex;flex-direction:column;transition:transform .3s var(--ease)}
+.scard[hidden]{display:none}
+.scard:hover,.scard:focus-visible{transform:scale(1.02)}
+/* navy band sized by its words, the photo fills the rest, a soft fade where they meet */
+.card-top{order:0;flex-shrink:0;position:relative;z-index:2;display:flex;flex-direction:column;gap:clamp(6px,3cqi,12px);padding:clamp(14px,8cqi,30px) clamp(14px,8cqi,30px) clamp(14px,7cqi,26px);background:var(--navy-deep)}
+.card-top::after{content:"";position:absolute;left:0;right:0;top:100%;height:clamp(28px,16cqi,64px);background:linear-gradient(180deg,var(--navy-deep),rgba(18,50,98,0));pointer-events:none}
+.scard:has(.card-ph) .card-top::after{display:none}
+.scard img{order:1;flex:1;min-height:0;width:100%;object-fit:cover;display:block;pointer-events:none}
+.card-ph{order:1;flex:1;display:grid;place-items:center;background:#e8e7e3;border-top:1.5px dashed rgba(3,67,131,.28);color:#034383;font:700 clamp(10px,3.4cqi,12px) var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.card-cat{font:600 clamp(11px,3.9cqi,14px)/1.3 var(--sans);letter-spacing:.02em;color:#d3b65a}
+.card-title{font:600 clamp(15px,7.2cqi,27px)/1.18 var(--sans);letter-spacing:-.015em}
+.card-go{position:absolute;right:clamp(10px,6cqi,20px);bottom:clamp(10px,6cqi,20px);z-index:2;width:clamp(32px,12cqi,42px);height:clamp(32px,12cqi,42px);border-radius:50%;background:#fff;color:#16171b;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.card-go svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.scard:hover .card-go svg,.scard:focus-visible .card-go svg{transform:rotate(45deg)}
+@media (max-width:760px){html[data-svc] .svc.svc-cards{padding:8vh var(--gutter)}.scard{height:var(--h)}}
+@media (prefers-reduced-motion:reduce){.scard,.card-go svg{transition:none}}
+.svc-switch{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;transform:translate(-50%,160%);display:flex;gap:4px;align-items:center;padding:6px 6px 6px 14px;border-radius:8px;background:#16171b;color:#f1f1ef;transition:transform .45s var(--ease)}
+.svc-switch.on{transform:translate(-50%,0)}
+.svc-switch span{margin-right:8px;white-space:nowrap}
+.svc-switch a{display:grid;place-items:center;min-height:40px;padding:0 12px;border-radius:6px;font:800 13px var(--sans);text-decoration:none;color:#f1f1ef;white-space:nowrap}
+.svc-switch a[aria-current]{background:var(--brass);color:var(--navy-deep)}
+@media (max-width:560px){.svc-switch span{display:none}.svc-switch a{padding:0 9px;font-size:12px}}
+/* short phones (e.g. 375x667): the longest situations must fit between the header and the Keystone badge */
+@media (max-width:760px) and (max-height:720px){
+  .help.js .slide .big{width:108px}
+  .help.js .slide .big3d{width:150px}
+  .help.js .slide p{margin-bottom:18px;line-height:1.5}
+  .help.js .slide h3{margin-bottom:16px}
+  .help.js.hl-cards .slide{inset:62px 10px 84px;padding:14px 18px}
+  .hl-cards .slide p{font-size:15px;line-height:1.45;margin-bottom:12px}
+  .hl-cards .slide .acts{gap:6px 18px}
+  .hl-cards .slide h3{margin-bottom:10px}
+  .help.js .slide .big.pic{height:21svh}
+  .help.js.hl-cards .slide .big.pic{margin:-14px -18px 10px;height:21svh}
+}
+
+/* ---------------- 4. about: what working with him is like ----------------
+   Section job (sitemap, ruled KEEP 2026-09-23): one person handles the whole file, first call
+   to closing. Fahad picked option B "Meet Puneet" (2026-09-24) over A (how it works) and
+   C (both); A and C are in 06 - Archive/prototype-v21-about-ABC-2026-09-24.html. */
+.about{position:relative;padding:16vh var(--gutter)}
+.about .w{display:inline-block}
+.about .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.about .fine{color:var(--fg-2);font-size:15px;margin:0}
+.bound-ph{position:relative}
+.bound-ph img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.bound-ph .pin{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--navy);border:1.5px solid var(--brass);z-index:2}
+.bound-ph .pin:nth-of-type(1){left:-18px;top:-18px}.bound-ph .pin:nth-of-type(2){right:-18px;top:-18px}
+.bound-ph .pin:nth-of-type(3){right:-18px;bottom:-18px}.bound-ph .pin:nth-of-type(4){left:-18px;bottom:-18px}
+.bound-ph::before{content:"";position:absolute;inset:-14px;border:1.5px solid var(--brass);pointer-events:none}
+
+/* B · meet Puneet: a portrait and a proper introduction, licence laid out to be checked */
+/* About (Fahad 2026-09-24): portrait left, the name large on the right (option A of the portrait-left round),
+   made "more dynamic": on wide screens the section holds while the portrait glides from the centre to its
+   place, the name slides out from behind it, then the line, the description and the buttons follow. */
+.ab-b{overflow-x:clip}
+.ab-b .grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,6vw,110px);align-items:center;min-height:calc(100svh - 32vh)}
+.ab-b .bound-ph{aspect-ratio:2/3;width:min(100%,calc(78svh * 2 / 3));margin:14px;position:relative;z-index:2}
+.ab-b .bound-ph .clip{position:absolute;inset:0;overflow:hidden;border-radius:2px}
+.ab-b .txt{position:relative;z-index:1}
+/* the road runs behind this section; a soft pool of the page colour keeps it off the words */
+.ab-b .txt::before{content:"";position:absolute;inset:-60px -80px;z-index:-1;background:radial-gradient(closest-side,var(--bg) 62%,transparent);transition:background .9s var(--ease)}
+.ab-b h2{font-size:clamp(60px,8vw,140px);line-height:.86;margin:0 0 30px}
+.ab-b h2 span{display:block}
+.ab-b .state{font:600 clamp(23px,1.9vw,31px)/1.24 var(--serif);font-variation-settings:"opsz" 14;margin:0 0 18px;max-width:600px}
+.ab-b .desc{font-size:clamp(17px,1.2vw,19px);line-height:1.62;color:var(--fg-2);max-width:580px;margin:0 0 16px}
+.ab-b .desc:last-of-type{margin-bottom:26px}
+.ab-b .lic{font-size:14px;color:var(--fg-2);margin:0 0 22px}
+.ab-b .lic a{color:var(--brass);font-weight:700;text-underline-offset:3px}
+.ab-b .end .acts{margin:0}
+/* the fuller story (Fahad 2026-09-25) must fit while the section is held: less top space, wider lines, and on shorter laptops slightly smaller type */
+@media (min-width:861px){.about.ab-b{padding-top:11vh;padding-bottom:11vh}.ab-b .desc{max-width:660px}}
+@media (min-width:861px) and (max-height:860px){.ab-b h2{font-size:min(8vw,11svh);margin-bottom:20px}.ab-b .state{font-size:clamp(20px,1.6vw,26px);margin-bottom:12px}.ab-b .desc{font-size:16px;line-height:1.52;margin-bottom:10px}.ab-b .desc:last-of-type{margin-bottom:16px}.ab-b .lic{margin-bottom:14px}}
+@media (max-width:860px){
+  .ab-b .grid{grid-template-columns:1fr;gap:6vh;min-height:0}
+  .ab-b .bound-ph{width:min(calc(100% - 28px),380px)}
+  .ab-b h2{font-size:64px}
+  .ab-b .state{font-size:24px}
+  .ab-b .txt::before{inset:-40px 0}
+}
+
+
+/* ---------------- 5. reviews (horizontal track) ----------------
+   The reference's sideways gallery rhythm, carrying clients' words, not photos. */
+.revs{position:relative;overflow:hidden}
+.revs .plan path,.abc .plan path{stroke:rgba(26,68,128,.075)}
+.revs .track{display:flex;align-items:flex-start;gap:clamp(56px,7vw,130px);padding:16vh var(--gutter) 14vh 8vw;width:max-content;will-change:transform}
+.revs .open{flex:0 0 auto;width:clamp(280px,28vw,440px);align-self:center}
+.revs .open h2{font-size:clamp(44px,5.4vw,90px);margin:0 0 22px}
+.revs .score{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+.revs .score b{font:var(--serif-w,400) clamp(64px,7vw,110px)/.8 var(--serif);font-variation-settings:var(--serif-var,normal);color:var(--brass-deep)}
+.revs .score span{font-size:17px;color:var(--fg-2);max-width:160px}
+.q{flex:0 0 auto;margin:0;position:relative;padding-top:28px;border-top:1.5px solid var(--fg)}
+.q::before{content:"\201C";position:absolute;top:-6px;left:0;transform:translateY(-100%);font:var(--serif-w,400) 88px/1 var(--serif);font-variation-settings:var(--serif-var,normal);color:var(--brass-deep)}
+.q p{margin:0 0 20px;font:var(--serif-w,400) clamp(22px,2vw,30px)/1.25 var(--serif);font-variation-settings:var(--serif-var,normal);}
+.q.big p{font-size:clamp(28px,2.8vw,42px)}
+.q footer{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--fg-2)}
+.q footer i{font-style:normal;color:var(--brass-deep);letter-spacing:.15em}
+.q .todo{display:inline-block;margin-top:14px;font:600 12px var(--sans);letter-spacing:0;text-transform:none;color:var(--brass-deep);border:1px dashed currentColor;padding:4px 8px;border-radius:4px}
+.q.w1{width:clamp(280px,26vw,400px);margin-top:6vh}
+.q.w2{width:clamp(320px,34vw,540px);margin-top:26vh}
+.q.w3{width:clamp(260px,22vw,340px);margin-top:2vh}
+.q.w4{width:clamp(300px,30vw,460px);margin-top:20vh}
+/* full-length reviews (2026-10-06): whole review, word for word, sized so the longest fits the pinned screen height */
+.q.full{width:clamp(340px,33vw,540px)}
+.q.full p{font-size:clamp(17px,1.28vw,21px);line-height:1.42;margin:0 0 12px}
+.q.full p:last-of-type{margin-bottom:20px}
+.q.full.short{width:clamp(280px,24vw,380px)}
+.q.full.short p{font-size:clamp(21px,1.7vw,27px);line-height:1.3}
+.q.o0{margin-top:0}.q.o1{margin-top:2vh}.q.o2{margin-top:5vh}.q.o3{margin-top:9vh}.q.o4{margin-top:16vh}
+@media (min-width:761px) and (max-height:820px){.q.full{width:clamp(340px,36vw,560px)}.q.full p{font-size:clamp(15.5px,1.15vw,18px);line-height:1.38}}
+/* the row starts low enough that each review's gold quote mark clears the fixed white header (it hid under it at 16vh) */
+@media (min-width:761px){.revs .track{padding-top:max(16vh,190px)}}
+/* phones: stacked reviews need room for the next quote mark, which sits above its rule (at 72px it covered the name above) */
+@media (max-width:760px){html .revs .track{gap:128px}}
+/* Google proof on each review (Fahad 2026-10-06: "links and stuff to google so it looks legit"): stars, the G, how long ago,
+   and a link to that exact review on Google. The quote design itself is unchanged. */
+.q footer{row-gap:8px}
+.q footer .who{color:var(--fg)}
+.st{color:#fbbc04;letter-spacing:2px;font-style:normal;font-size:14px}
+.q .gr{display:inline-flex;align-items:center;gap:7px;color:var(--fg-2);text-decoration:none;border-bottom:1px solid transparent;letter-spacing:.08em}
+.q .gr:hover,.q .gr:focus-visible{color:var(--fg);border-bottom-color:currentColor}
+.q .gr .dot{opacity:.6}
+.q .gr time{text-transform:none;letter-spacing:.02em;font-weight:600}
+svg.g{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px}
+.revs .score span{max-width:220px}
+.revs .score .st{display:block;font-size:18px;margin-bottom:4px}
+.revs .score svg.g{margin:0 3px 0 1px}
+.revs .textlink svg.g{width:15px;height:15px}
+.nw{white-space:nowrap} /* html prefix: beats the later section-5 phone rule (gap:72px) */
+.revs .end{flex:0 0 auto;align-self:center;width:clamp(240px,22vw,320px)}
+.textlink{display:inline-flex;gap:10px;align-items:center;font:800 13px var(--sans);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:4px}
+@media (max-width:760px){
+  .revs .track{flex-direction:column;width:auto;padding:12vh var(--gutter);gap:72px}
+  .revs .open,.q,.revs .end{width:100%!important;margin-top:0!important}
+}
+
+/* ---------------- 6. A B C doors ---------------- */
+.abc{position:relative;padding:16vh var(--gutter) 0;overflow:hidden;min-height:100svh}
+.abc .head{max-width:620px}
+.abc .head h2{font-size:clamp(40px,5.4vw,86px);margin:0 0 20px}
+.abc .head p{margin:0;color:var(--fg-2);max-width:520px}
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,28px);margin-top:10vh;position:relative;z-index:2;max-width:1100px}
+.door{border-top:1.5px solid var(--fg);padding-top:16px;text-decoration:none;display:block}
+.door .L{font:var(--serif-w,400) clamp(110px,17vw,270px)/.8 var(--serif);font-variation-settings:var(--serif-var,normal);text-transform:uppercase;display:block;transition:color .4s,transform .6s var(--ease);transform-origin:left bottom}
+.door .d{display:block;font-weight:700;margin-top:18px}
+.door .x{display:block;color:var(--fg-2);font-size:17px;max-width:280px;margin-top:6px}
+.door:hover .L,.door:focus-visible .L{color:var(--brass-deep);transform:scale(1.04)}
+.abc .more{position:relative;z-index:2;margin:8vh 0 12vh}
+.abc .peeker{position:absolute;right:-4vw;bottom:0;height:min(88svh,980px);width:auto;max-width:none;z-index:1;pointer-events:none}
+/* the C always meets Puneet (Fahad 2026-09-29: touching on his laptop, a gap on his monitor). The letters' block
+   stretches to where the photo starts, overlapping it by about a tenth of the photo's width (tuned so 1440x900 matches the original 42px), at every screen size.
+   Photo width = its height (min(88svh,980px)) x 1000/1900; its left edge = 100% + gutter + 4vw - width. */
+@media (min-width:901px){.doors{max-width:none;width:calc(100% + var(--gutter) + 4vw - min(88svh,980px) * .4579)}.door .L{font-size:clamp(110px,17vw,440px)}
+  /* Puneet stands IN FRONT of the letters, so the C's line tucks behind his arm instead of cutting across him (Fahad 2026-09-29);
+     the C's words stop short of the overlap zone so the photo never covers text */
+  .abc .peeker{z-index:3}
+  .doors .door:last-child .d,.doors .door:last-child .x{max-width:min(280px,calc(100% - min(88svh,980px) * .0526 - 24px))}} /* letters keep the laptop proportions on big screens (was capped at 270px) */
+@media (max-width:900px){.abc .peeker{height:58svh;right:-22vw;opacity:.9}.doors{grid-template-columns:1fr}.door .L{font-size:120px}}
+/* ---------------- 7. videos ---------------- */
+.vids{padding:16vh var(--gutter) 12vh}
+.vids .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:6vh}
+.vids h2{font-size:clamp(40px,5.4vw,86px);margin:0}
+.vids .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,24px)}
+/* smaller tiles (Fahad 2026-10-06 "make the picture tiles smaller"): a fixed column width instead of a third of the page each,
+   so a tile and the heading fit one screen. The row was at the left page margin until 2026-10-07; now centred (phones still scroll from the left) */
+.vids .grid:has(.reel){grid-template-columns:repeat(4,minmax(0,clamp(220px,21vw,320px)));justify-content:center} /* centred 2026-10-07 (Fahad: "too much white space on the right") */
+.slot{aspect-ratio:9/16;border:1.5px dashed var(--line);border-radius:6px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:var(--fg-2);font-size:14px}
+.slot b{display:block;color:var(--fg);font-size:15px;margin-bottom:4px}
+/* video tiles (2026-10-06): Fahad's hand-picked reels, self-hosted. The tile is a frame from the START of the video (its first clean
+   frame), full bleed, nothing added on top but the play button. Rejected on the way: a navy band + title ("remove the blue
+   shading"), then his designed Instagram covers ("dont use thumbnails ... use the picture from the first part of the video"). Hover plays with sound (muted until the visitor's first click, a browser rule); click opens js/reels.js's player. Title lives in aria-label + the player. */
+.reel{position:relative;aspect-ratio:9/16;container-type:inline-size;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--navy-deep);color:#fff;display:flex;flex-direction:column;padding:0;font:inherit;text-align:left;cursor:pointer;transition:transform .3s var(--ease)}
+.reel:hover,.reel:focus-visible{transform:scale(1.02)}
+.reel video{flex:1;min-height:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.reel-play{position:absolute;right:clamp(10px,5cqi,16px);bottom:clamp(10px,5cqi,16px);z-index:3;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--navy-deep);display:grid;place-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);transition:opacity .3s var(--ease)}
+.reel-play svg{width:17px;height:17px;margin-left:3px}
+.reel.previewing .reel-play{opacity:0}
+@media (max-width:760px){.vids .grid,.vids .grid:has(.reel){grid-template-columns:repeat(4,58vw);overflow-x:auto;scroll-snap-type:x mandatory;justify-content:start}.slot,.reel{scroll-snap-align:start}}
+
+/* ---------------- 8. footer ---------------- */
+.foot{position:relative;padding:18vh var(--gutter) 0;overflow:hidden} /* bottom padding lives in .low since 2026-10-10 */
+.foot .big{font-size:clamp(56px,11vw,190px);margin:0 0 6vh}
+@media (max-width:620px){.foot .big{font-size:9.2vw}} /* CONVERSATION. must fit a phone's width (was cut off at 56px) */
+.book{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:5vw;align-items:start;margin:0 0 7vh}
+.book-lead{font-size:clamp(19px,1.5vw,23px);line-height:1.5;color:var(--fg-2);margin:0;max-width:420px}
+.book-slot{min-height:640px;border:1.5px dashed rgba(3,67,131,.3);border-radius:14px;display:grid;place-items:center;padding:24px;text-align:center;background:rgba(255,255,255,.45)}
+.book-slot .todo{font:600 13px/1.5 var(--sans);color:#86651a;border:1px dashed currentColor;padding:6px 10px;border-radius:4px;max-width:340px}
+@media (max-width:860px){.book{grid-template-columns:1fr;gap:24px}.book-slot{min-height:560px}}
+.foot .invite{text-align:center;max-width:840px;margin:0 auto 11vh}.foot .invite .micro{display:block;margin-bottom:18px;color:#86651a}.foot .invite h2{margin:0 0 18px;font-size:clamp(34px,3.4vw,52px);color:var(--ink)}.foot .invite-lead{margin:0 auto 30px;max-width:34em}.foot .invite-lead p{margin:0;font-size:clamp(18px,1.4vw,21px);line-height:1.6;color:var(--ink-2)}.foot .invite .btn{border-color:var(--ink);color:var(--ink);background:transparent} /* 2026-10-05 demo 07 option 2 */
+.foot .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10vh}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:6px;font:800 14px var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--fg)}
+.btn.solid{background:var(--brass);border-color:var(--brass);color:var(--navy-deep)}
+/* LOWER FOOTER BLOCK (2026-10-10, Fahad: Demo 19 layout 1 "One row", WHITE): wordmark + Brampton line left, four links centre,
+   three ICON links right (Instagram in its gradient, the four-colour Google G + his 5.0, the licence check as a navy shield with a gold
+   tick), then the licence line + © Privacy. The block spans the full width (negative gutter margins) and carries the page's bottom padding. */
+.foot .low{margin:0 calc(-1 * var(--gutter));padding:44px var(--gutter) calc(28px + env(safe-area-inset-bottom,0px));background:#fff;color:#16171b}
+.foot .low .in{max-width:1360px;margin:0 auto}
+.foot .row{display:grid;grid-template-columns:minmax(220px,1.2fr) auto auto;align-items:center;gap:24px 40px}
+.fmark{display:inline-block;text-decoration:none;color:#16171b}
+.fmark .l1{display:block;font:600 clamp(15px,1.3vw,18px)/.9 var(--serif);font-variation-settings:"opsz" 14;text-transform:uppercase;letter-spacing:-.01em}
+.fmark .l2{display:block;font:800 clamp(20px,1.8vw,26px)/.86 var(--sans);font-variation-settings:"wdth" 118;text-transform:uppercase;letter-spacing:-.03em}
+.foot .based{margin:10px 0 0;font-size:15.5px;line-height:1.5;color:#3a3b41;max-width:26em}
+.flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 28px;margin:0;padding:0;list-style:none}
+.flinks a{display:inline-block;padding:4px 0;font:600 16px/1.4 var(--sans);color:#3a3b41;text-decoration:none;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+.flinks a:hover{color:#16171b;border-color:var(--brass)}
+.ficons{display:flex;align-items:center;gap:6px;margin:0;padding:0;list-style:none}
+.ficons a{display:inline-flex;align-items:center;gap:7px;min-height:44px;min-width:44px;padding:0 10px;border-radius:999px;color:#16171b;text-decoration:none;border:1.5px solid transparent;transition:border-color .2s,background .2s}
+.ficons a:hover{border-color:var(--line);background:var(--wall)}
+.ficons a:focus-visible,.flinks a:focus-visible,.fmark:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.ficons svg{display:block}
+.ficons .ig{width:22px;height:22px;fill:none;stroke:url(#igGrad);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ficons .ig circle:last-child{fill:url(#igGrad);stroke:none}
+.ficons .gg{width:20px;height:20px}
+.ficons .fscore{font:800 13px/1 var(--sans);letter-spacing:.02em}
+.ficons .fscore i{font-style:normal;color:var(--brass-deep);margin-left:1px}
+.ficons .bd{width:23px;height:23px}
+.ficons .bd .fill{fill:var(--logo-navy)}
+.ficons .bd .tick{fill:none;stroke:var(--brass);stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:1180px){.foot .row{grid-template-columns:1fr auto}.flinks{grid-column:1 / -1;justify-content:flex-start;order:3}}
+@media (max-width:620px){.foot .row{grid-template-columns:1fr;gap:18px}.ficons{margin-left:-10px}}
+.fmark .l1,.fmark .l2{white-space:nowrap}
+.licence{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;color:var(--logo-navy);display:flex;justify-content:space-between;align-items:baseline;gap:16px 32px;flex-wrap:wrap}
+.licence a{color:inherit}
+
+
+/* reduced motion: everything readable, nothing pinned */
+@media (prefers-reduced-motion:reduce){
+  html,body{transition:none}
+}
+
+/* TOP NAV (2026-09-29): links across the top from 1180px up; the menu button stays below that. SAME as the Astro site's site.css */
+.topnav{display:none}
+@media (min-width:1180px){
+  html.mark-ink .mark,.hdr .mark{color:var(--ink)}
+  .topnav{display:flex;align-items:center;gap:clamp(18px,1.7vw,32px);margin:0 clamp(18px,2vw,32px) 0 auto}
+  .burger{display:none}
+}
+/* TOP NAV LINKS (Fahad 2026-10-01, Demo 04 picked, kept exactly as the demo after a heavier-font + current-page version was
+   rejected): sentence case, one soft blue pill that slides between links (js/nav.js), and a two-column menu with icons under Mortgage services.
+   SAME in the prototype and the Astro site's site.css: change both together. */
+.tn-list{position:relative;display:flex;align-items:center;margin:0;padding:0;list-style:none}
+.tn-item{position:relative}
+.tn-link{position:relative;z-index:1;display:flex;align-items:center;gap:4px;padding:6px 16px;font:400 14px/20px var(--sans);color:#55565d;text-decoration:none;white-space:nowrap;cursor:pointer;transition:color .3s}
+.tn-link:hover,.tn-link:focus-visible,.tn-item.open>.tn-link{color:var(--ink)}
+.tn-link:focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:99px}
+.tn-chev{width:16px;height:16px;transition:transform .3s}
+.tn-link:hover .tn-chev,.tn-item.open .tn-chev{transform:rotate(180deg)}
+.tn-pill{position:absolute;left:0;top:0;z-index:0;border-radius:99px;background:rgba(26,68,128,.1);pointer-events:none;visibility:hidden}
+.tn-pill.on{visibility:visible}
+.tn-wrap{position:absolute;left:0;top:100%;padding-top:8px;display:none;z-index:2}
+.tn-item.open>.tn-wrap{display:block}
+.tn-menu{width:max-content;padding:16px;background:var(--wall);border:1px solid rgba(26,68,128,.16);border-radius:16px}
+.tn-cols{display:flex;gap:36px}
+.tn-col h3{margin:0 0 16px;font:500 14px/20px var(--sans);color:#55565d}
+.tn-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:24px}
+.tn-col a{display:flex;align-items:flex-start;gap:12px;text-decoration:none}
+.tn-ic{display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;border:1px solid rgba(26,68,128,.16);border-radius:6px;color:var(--ink);transition:background-color .3s,color .3s}
+.tn-ic svg{width:20px;height:20px}
+.tn-col a:hover .tn-ic,.tn-col a:focus-visible .tn-ic{background:#e2e7ef;color:var(--navy)}
+.tn-lb{display:block;font:500 14px/20px var(--sans);color:var(--ink)}
+.tn-ds{display:block;font:400 12px/16px var(--sans);color:#55565d;transition:color .3s}
+.tn-col a:hover .tn-ds,.tn-col a:focus-visible .tn-ds{color:var(--ink)}
+.tn-col a:focus-visible{outline:2px solid var(--navy);outline-offset:4px;border-radius:6px}
+@media (min-width:1180px){.about.ab-b{padding-top:calc(11vh + 36px)}} /* room under the solid top bar */
+
+/* GAP HEADING → section heading hand-off (2026-09-29). Fixed, under the hero (z 1 < .intro z 2), shown only while it runs. */
+.gsvc{position:fixed;inset:0;z-index:1;pointer-events:none;visibility:hidden;opacity:0}
+.gsvc-in{position:absolute;inset:0;padding:var(--hdr-h,90px) var(--gutter) 0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.gsvc-hw{margin:0 0 clamp(20px,3.4vh,36px)}
+.gsvc-pw{display:flex;justify-content:center}
+.gsvc-h{font-size:clamp(48px,7.6vw,150px);margin:0;white-space:nowrap;transform-origin:0 0;will-change:transform}
+.gsvc-p{max-width:680px;margin:0;font-size:clamp(18px,1.5vw,23px);line-height:1.55;color:var(--fg-2)}
+@media (max-width:760px){.gsvc-h{white-space:normal;font-size:52px}.gsvc-p{font-size:17px}}
+/* NAV COLOUR PREVIEW (2026-10-05, Fahad: "What if we use the keystone logo blue on the nav bar"): ?nav=blue on any page shows the
+   header in the Keystone logo blue (#034383) with white lettering. Preview only; the default stays white until he decides. */
+html.nav-blue .hdr,html.nav-blue .hdr.solid{background:#034383;border-bottom-color:#034383}
+html.nav-blue .hdr .mark,html.nav-blue.mark-ink .hdr .mark{color:#fff}
+html.nav-blue .hdr .tn-link{color:rgba(255,255,255,.92)}
+html.nav-blue .hdr .tn-pill{background:rgba(255,255,255,.14)}
+html.nav-blue .hdr .burger{border-color:#fff;color:#fff}
+/* BLUE-NAV VERSION (2026-10-06, Fahad: "The Blue Nav Bar: Remove any blue shading from pictures"): the service cards' navy fade
+   into the photo goes; the navy band above the photo stays (it is not on the picture). Same rule as site.css. */
+html.nav-blue .card-top::after{display:none}
+/* BLUE-NAV VERSION, service cards = Demo 09 option 1 (Fahad 2026-10-06 "lets keep it like that for the blue version"): NO blue in
+   the section. The photo fills the card, the words sit on it over a neutral dark shade (the situation pages' picture cards), the
+   arrow moves to the top-right, borders neutral. White version keeps the navy band. */
+html.nav-blue .scard{background:#1d1d1f;border-color:rgba(22,23,27,.12)}
+html.nav-blue .scard img{position:absolute;inset:0 0 auto 0;height:74%;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)} /* zoomed out 2026-10-07 (Fahad: "Cant these pictures be zoomed out a bit?"): the photo fills the top 74% and fades into the card under the words, same as site.css */
+html.nav-blue .card-top{position:absolute;left:0;right:0;bottom:0;padding-top:90px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.74) 42%)}
+html.nav-blue .card-go{top:clamp(10px,6cqi,16px);bottom:auto}
+/* BLUE-NAV crops (2026-10-07, Fahad: "These images are not properly sitting inside the frame"): a full-height portrait card shows
+   only the middle ~44% of these 3:2 photos, which cut the trucker's side, the CN Tower and the first-time buyer's face. Each card
+   aims its crop at its people. !important because the cards carry an inline object-position that the white version uses. */
+html.nav-blue .scard[href="/puneet-mann-preview/self-employed"] img{object-position:79% 50%!important}
+html.nav-blue .scard[href="/puneet-mann-preview/investors"] img{object-position:29% 50%!important}
+html.nav-blue .scard[href="/puneet-mann-preview/first-time-buyers"] img{object-position:76% 50%!important}
+html.nav-blue .scard[href="/puneet-mann-preview/moving-homes"] img{object-position:75% 50%!important}
+html.nav-blue .scard[href="/puneet-mann-preview/refinancing"] img{object-position:86% 50%!important}
+html.nav-blue .scard[href="/puneet-mann-preview/new-to-canada"] img{object-position:77% 50%!important}
+html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+<script>document.documentElement.classList.add('nav-blue');/* BLUE NAV DECIDED 2026-10-10 (was a ?nav=blue test switch) */</script>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="/puneet-mann-preview/look.css">
+<link rel="stylesheet" href="/puneet-mann-preview/review.css">
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true"><canvas></canvas><img class="ld-flat" src="img/keystone-logo.svg" alt=""><button class="skip" type="button" tabindex="-1">Skip</button></div>
+<script>
+/* loading screen: on every visit (Fahad 2026-09-25). js/keystone.js plays the gold key and calls __loaderDone.
+   Anything else (no WebGL, reduced motion, the 3D failing to load) shows the flat logo briefly instead. */
+(function(){var root=document.documentElement,el=document.getElementById('loader'),done=false;
+  window.__afterLoader=[];
+  // OFF for now (Fahad 2026-09-25: "get rid of it for now, we'll add it back later"). ?loader=1 shows it; set LOADER_ON=true to bring it back
+  var LOADER_ON=/[?&]loader=1/.test(location.search);
+  if(!LOADER_ON){window.__loaderOn=false;el.remove();return;}
+  root.classList.add('loading');window.__loaderOn=true;
+  window.__loaderDone=function(){if(done)return;done=true;el.classList.add('done');root.classList.remove('loading');window.__loaderOn=false;
+    window.__afterLoader.forEach(function(f){try{f();}catch(e){}});window.__afterLoader=[];setTimeout(function(){el.remove();},700);};
+  window.__loaderFlat=function(ms){el.classList.add('flat');setTimeout(window.__loaderDone,ms||1300);};
+  var gl=false;try{var c=document.createElement('canvas');gl=!!(c.getContext('webgl2')||c.getContext('webgl'));}catch(e){}
+  if(!gl||matchMedia('(prefers-reduced-motion: reduce)').matches)window.__loaderFlat(1100);
+  var qa=/[?&]ldp=/.test(location.search); // QA: ?ldp=0.4 freezes the loader, so no timers
+  if(!qa){setTimeout(function(){if(!window.__ksStarted)window.__loaderFlat(900);},4500);  // the 3D never started: don't hold the page
+  setTimeout(window.__loaderDone,9000);}                                                  // hard ceiling
+  ['click','keydown','wheel','touchstart'].forEach(function(t){addEventListener(t,function(){if(!done&&window.__ksStarted)window.__loaderDone();},{passive:true});});
+})();
+</script>
+<svg id="road" aria-hidden="true"></svg>
+<svg id="trail" aria-hidden="true"></svg>
+<canvas id="town" aria-hidden="true"></canvas>
+
+<header class="hdr">
+  <a class="mark" href="#top" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
+  <span class="scrollcue micro" aria-hidden="true">Mortgage Agent Level 2 · Brampton</span>
+  <!-- links across the top (Fahad 2026-09-29); Demo 04's sliding-pill drop-down (2026-10-01), driven by js/nav.js.
+       SAME markup as the Astro site's components/Header.astro: change both together. Phones keep the menu button. -->
+  <nav class="topnav" aria-label="Main">
+    <ul class="tn-list">
+      <li class="tn-item" data-menu="services">
+        <a class="tn-link" href="#services" aria-haspopup="true" aria-expanded="false">Mortgage services<svg class="tn-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="tn-wrap">
+          <div class="tn-menu"><div class="tn-cols">
+            <div class="tn-col">
+              <h3>Buying a home</h3>
+              <ul>
+                <li><a href="/puneet-mann-preview/first-time-buyers"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span><span><span class="tn-lb">First-time home buyers</span><span class="tn-ds">Make a plan for your first home</span></span></a></li>
+                <li><a href="/puneet-mann-preview/moving-homes"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span><span><span class="tn-lb">Moving homes</span><span class="tn-ds">Plan your sale and next purchase</span></span></a></li>
+                <li><a href="/puneet-mann-preview/new-to-canada"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span><span class="tn-lb">New to Canada</span><span class="tn-ds">Mortgage options as you settle in</span></span></a></li>
+              </ul>
+            </div>
+            <div class="tn-col">
+              <h3>Your income and property</h3>
+              <ul>
+                <li><a href="/puneet-mann-preview/self-employed"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span><span class="tn-lb">Self-employed</span><span class="tn-ds">Your business income, in focus</span></span></a></li>
+                <li><a href="/puneet-mann-preview/investors"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span><span><span class="tn-lb">Investors</span><span class="tn-ds">Financing for the next property</span></span></a></li>
+                <li><a href="/puneet-mann-preview/refinancing"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span><span class="tn-lb">Refinancing</span><span class="tn-ds">Explore your home equity options</span></span></a></li>
+              </ul>
+            </div>
+          </div></div>
+        </div>
+      </li>
+      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/abc-lending">A, B and C lending</a></li>
+      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/calculator">Calculator</a></li>
+      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/about">About</a></li>
+      <li class="tn-pill" aria-hidden="true"></li>
+    </ul>
+  </nav>
+  <div class="right">
+    <a class="pill" href="/puneet-mann-preview/start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg>Get in touch</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+  </div>
+</header>
+
+<!-- DLC Keystone logo (Fahad 2026-09-24): grows in the split's gap, then settles as a badge through How I can help.
+     PLACEHOLDER until the official logo file arrives; DLC's brand rules + Jasmeen's approval apply before launch. -->
+<!-- GAP HEADING (Fahad 2026-09-29): as the hero splits, MORTGAGE SERVICES + a longer paragraph appear in the gap; on scroll the
+     heading travels into the section's own heading and hands over, the paragraph gives way to the short line, then the cards rise. -->
+<div class="gsvc" aria-hidden="true">
+  <div class="gsvc-in">
+    <div class="gsvc-hw"><div class="gsvc-h caps">Mortgage <span class="acc">services</span></div></div>
+    <div class="gsvc-pw"><p class="gsvc-p">Every mortgage starts with a situation. Tell Puneet yours and he reads your file the way a lender will, lists the documents to gather, and matches you with a bank, credit union, alternative or private lender that fits.</p></div>
+  </div>
+</div>
+<div class="dlc"><div class="dlc-in"><img src="img/keystone-logo-reversed.svg" width="532" height="512" alt="Keystone Financial Experts, Dominion Lending Centres. FSRA brokerage licence 13654"></div></div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="close" type="button" aria-label="Close menu">×</button>
+  <nav>
+    <a href="#services" class="caps">Mortgage <span class="acc">services</span></a>
+    <a href="/puneet-mann-preview/abc-lending" class="caps"><span class="acc">A, B</span> and <span class="acc">C</span> lending</a>
+    <a href="/puneet-mann-preview/calculator" class="caps">Calcu<span class="acc">lator</span></a>
+    <a href="/puneet-mann-preview/about" class="caps">About <span class="acc">Puneet</span></a>
+    <a href="/puneet-mann-preview/start" class="caps">Start a <span class="acc">conversation</span></a>
+  </nav>
+  <p class="foot">Puneet Mann, Mortgage Agent Level 2 · Dominion Lending Centres Keystone Financial Experts · Brokerage Licence #13654</p>
+</div>
+
+<main id="top">
+
+  <!-- 1+2 · INTRO: hero sheet that shrinks into a card over the marquee stage -->
+  <section class="intro" id="intro" data-theme="intro" aria-label="Introduction">
+    <div class="sheet">
+      <div class="split-copy">
+        <div class="top"><span class="micro">Mortgage Agent Level 2 · Brampton</span></div>
+        <h1 class="caps">Puneet <span class="acc">Mann</span></h1>
+        <div class="bot">
+          <p>Mortgages for business owners, investors, first-time buyers and families moving home, across Brampton and the GTA.</p>
+          <div class="acts"><a class="btn solid" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <span class="langs micro">English · ਪੰਜਾਬੀ · हिन्दी · اردو</span>
+        </div>
+      </div>
+      <div class="split-photo"><img src="img/all/p8.webp" alt="Puneet Mann at his desk, looking up from his laptop" fetchpriority="high"></div>
+    </div>
+    <svg class="bound" aria-hidden="true"><rect/><circle r="4"/><circle r="4"/><circle r="4"/><circle r="4"/></svg>
+    <canvas class="imap" aria-hidden="true"></canvas><div class="veil" aria-hidden="true"></div>
+    <script>
+    /* what happens after the hero: Split (Fahad 2026-09-24). Option bar removed; ?intro=1-4 still previews the others */
+    (function(){var m=/[?&]intro=([1-4])/.exec(location.search),k=m?m[1]:'2';document.documentElement.dataset.intro=k; /* Fahad 2026-09-24: Split */
+    })();
+    </script>
+  </section>
+
+  <!-- 3 · SITUATIONS: immersive fly-through -->
+  <section class="help" id="help" data-theme="dark" aria-labelledby="help-h">
+    <div class="stage3d">
+      <h2 class="sr" id="help-h">Mortgage services</h2>
+        <article class="slide">
+          <svg class="big" viewBox="0 0 400 400" aria-hidden="true" data-act="shop"><rect class="glow" x="81" y="239" width="68" height="78"/><rect class="glow" x="251" y="239" width="68" height="78"/><rect class="glow door" x="171" y="241" width="58" height="108"/><path pathLength="1" d="M20 350H380"/><path pathLength="1" d="M60 350V150H340V350"/><path pathLength="1" d="M92 150V106H308V150"/><path pathLength="1" d="M60 190Q77 216 94 190Q111 216 128 190Q145 216 162 190Q179 216 196 190Q213 216 230 190Q247 216 264 190Q281 216 298 190Q315 216 332 190L340 190"/><path pathLength="1" d="M170 350V240H230V350"/><path pathLength="1" d="M218 300a3 3 0 1 0 .1 0"/><path pathLength="1" d="M80 238H150V318H80Z"/><path pathLength="1" d="M115 238V318M80 278H150"/><path pathLength="1" d="M250 238H320V318H250Z"/><path pathLength="1" d="M285 238V318M250 278H320"/><clipPath id="shopname"><rect class="reveal" x="100" y="110" width="0" height="36"/></clipPath><text class="tx name" x="200" y="134" clip-path="url(#shopname)">YOUR BUSINESS</text><g class="sign"><path pathLength="1" class="later" d="M190 262L200 250L210 262"/><path pathLength="1" class="later" d="M180 262H220V280H180Z"/><text class="tx" x="200" y="274.6">OPEN</text></g></svg>
+          <div class="copy">
+            <span class="of micro">Mortgage services · 01 / 04</span>
+            <h3 class="caps">Self-<span class="acc">employed</span></h3>
+            <p>Lenders read self-employed income from your tax returns, not pay stubs. Puneet reads them the way a lender will first, then matches you with a bank, or with a lender that looks at the business itself.</p>
+            <div class="acts"><a class="textlink" href="self-employed.html">Self-employed mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          </div>
+        </article>
+        <article class="slide">
+          <svg class="big" viewBox="0 0 400 400" aria-hidden="true" data-act="invest"><path pathLength="1" d="M20 350H392"/><g class="row"><g class="lights"><rect class="glow" x="61" y="251" width="18" height="18"/></g><g class="lights"><rect class="glow" x="171" y="213" width="23" height="23"/><rect class="glow" x="236" y="213" width="23" height="23"/><rect class="glow" x="171" y="271" width="23" height="23"/><rect class="glow" x="236" y="271" width="23" height="23"/></g><g class="lights"><rect class="glow" x="301" y="263" width="18" height="18"/></g><path pathLength="1" d="M40 350V232L95 184L150 232V350"/><path pathLength="1" d="M85 350V302H105V350"/><path pathLength="1" d="M60 250H80V270H60Z"/><path pathLength="1" d="M150 350V192L215 134L280 192V350"/><path pathLength="1" d="M170 212H195V237H170Z"/><path pathLength="1" d="M235 212H260V237H235Z"/><path pathLength="1" d="M170 270H195V295H170Z"/><path pathLength="1" d="M235 270H260V295H235Z"/><path pathLength="1" d="M205 350V306H225V350"/><path pathLength="1" d="M280 350V242L325 202L370 242V350"/><path pathLength="1" d="M300 262H320V282H300Z"/><path pathLength="1" d="M335 350V312H352V350"/></g><g class="next"><rect class="glow" x="357" y="297" width="12" height="12"/><path pathLength="1" class="later" d="M344 350V291L368 270L392 291V350"/><path pathLength="1" class="later" d="M356 296H370V310H356Z"/><path pathLength="1" class="later" d="M375 350V326H386V350"/></g></svg>
+          <div class="copy">
+            <span class="of micro">Mortgage services · 02 / 04</span>
+            <h3 class="caps">Investors</h3>
+            <p>Lenders count part of your rental income and look at every property you already own. Puneet lays out your whole portfolio and finds the lender whose rules suit it, so the next purchase stays possible.</p>
+            <div class="acts"><a class="textlink" href="#">Investment property mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          </div>
+        </article>
+        <article class="slide">
+          <svg class="big" viewBox="0 0 400 400" aria-hidden="true" data-act="key"><rect class="glow" x="81" y="231" width="30" height="30"/><rect class="glow" x="189" y="231" width="30" height="30"/><rect class="glow door" x="131" y="273" width="38" height="77"/><path class="glow spill" d="M131 350H169L196 380H104Z"/><path pathLength="1" d="M30 350H380"/><path pathLength="1" d="M60 350V210L150 130L240 210V350"/><path pathLength="1" d="M200 175V140H218V191"/><path pathLength="1" d="M130 350V272H170V350"/><path pathLength="1" d="M80 230H112V262H80Z"/><path pathLength="1" d="M188 230H220V262H188Z"/><g class="leaf"><path pathLength="1" d="M133 349V275H167V349"/><path pathLength="1" d="M160 312a2.5 2.5 0 1 0 .1 0"/></g><g class="key"><path pathLength="1" d="M312 270A20 20 0 1 1 272 270A20 20 0 1 1 312 270"/><path pathLength="1" d="M298 270A6 6 0 1 1 286 270A6 6 0 1 1 298 270"/><path pathLength="1" d="M312 270H372"/><path pathLength="1" d="M352 270V286M364 270V282"/></g></svg>
+          <div class="copy">
+            <span class="of micro">Mortgage services · 03 / 04</span>
+            <h3 class="caps">First-time <span class="acc">home buyers</span></h3>
+            <p>Buying your first home in Canada, whether you grew up here or just arrived. Puneet shows you what you can afford under the stress test, how to use the FHSA and the RRSP Home Buyers' Plan, and which newcomer programs fit your status.</p>
+            <div class="acts"><a class="textlink" href="#">First-time buyers →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          </div>
+        </article>
+        <article class="slide">
+          <svg class="big" viewBox="0 0 400 400" aria-hidden="true" data-act="move"><g class="old"><rect class="glow" x="61" y="281" width="10" height="10"/><rect class="glow" x="81" y="311" width="18" height="38"/></g><g class="new"><rect class="glow" x="261" y="263" width="23" height="23"/><rect class="glow" x="328" y="263" width="23" height="23"/><rect class="glow" x="296" y="301" width="20" height="48"/></g><path pathLength="1" d="M20 350H380"/><path pathLength="1" d="M40 350V262L90 218L140 262V350"/><path pathLength="1" d="M80 350V310H100V350"/><path pathLength="1" d="M60 280H72V292H60Z"/><path pathLength="1" d="M240 350V242L305 186L370 242V350"/><path pathLength="1" d="M295 350V300H317V350"/><path pathLength="1" d="M260 262H285V287H260Z"/><path pathLength="1" d="M327 262H352V287H327Z"/><path pathLength="1" class="arc" d="M96 200C140 104 236 104 290 168"/><path pathLength="1" d="M290 168L270 163M290 168L284 149"/><g class="box"><path pathLength="1" class="later" d="M-11 -24H11V-4H-11Z"/><path pathLength="1" class="later" d="M-11 -18H11M0 -24V-18"/></g></svg>
+          <div class="copy">
+            <span class="of micro">Mortgage services · 04 / 04</span>
+            <h3 class="caps">Moving <span class="acc">homes</span></h3>
+            <p>The sale and the purchase rarely close on the same day. Puneet lines up the new mortgage with your sale date and arranges bridge financing when the money needs to arrive early.</p>
+            <div class="acts"><a class="textlink" href="#">Moving homes →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          </div>
+        </article>
+    </div>
+    <div class="vig" aria-hidden="true"></div>
+  </section>
+
+  <!-- 3b · HOW I CAN HELP, neutral versions (Fahad 2026-09-25: "something more neutral and professional"), ?svc=grid|list|tabs|fly -->
+  <section class="svc" id="services" data-theme="light" aria-labelledby="svc-h">
+    <div class="svc-head">
+      <h2 class="caps" id="svc-h">Mortgage <span class="acc">services</span></h2>
+      <p class="sub-line">Choose the situation that fits your plans and see what to consider.</p>
+      <div class="cards-nav" aria-label="Scroll the situations">
+        <button type="button" class="cn-prev" aria-label="Previous situations" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+        <button type="button" class="cn-next" aria-label="More situations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <!-- CARDS (Fahad 2026-09-29: picked Demo 01, 05 - Site/demos/01-services-cards.html). A 21st.dev Apple-style card carousel rebuilt in
+         plain HTML/CSS/JS (this page is not React). Photos: the four already provided for the tabs; 05 + 06 "Photo to come" until Fahad sends them. -->
+    <div class="cards" role="region" aria-roledescription="carousel" aria-label="Mortgage services">
+      <div class="cards-track">
+        <a class="scard" href="/puneet-mann-preview/self-employed"><img src="img/help/01-self-employed-trucker.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="card-top"><span class="card-cat">01 · Self-employed</span><span class="card-title">Your business income, in focus.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/puneet-mann-preview/investors"><img src="img/help/02-investors-skyline.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">02 · Investors</span><span class="card-title">Financing for the next property.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/puneet-mann-preview/first-time-buyers"><img src="img/help/03-first-time-buyers-steps.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">03 · First-time home buyers</span><span class="card-title">Make a plan for your first home.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/puneet-mann-preview/moving-homes"><img src="img/help/04-moving-homes-packed-car.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">04 · Moving homes</span><span class="card-title">Plan your sale and next purchase.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/puneet-mann-preview/refinancing"><img src="img/help/05-refinancing-kitchen.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">05 · Refinancing</span><span class="card-title">Explore your home equity options.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/puneet-mann-preview/new-to-canada"><img src="img/help/06-new-to-canada-arrival.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">06 · New to Canada</span><span class="card-title">Mortgage options as you settle in.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+      </div>
+    </div>
+
+    <div class="svc-items">
+      <article class="svc-item" id="svc-1">
+        <figure><img src="img/help/01-self-employed-trucker.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">01</span>
+          <h3>Self-employed</h3>
+          <p>Lenders read self-employed income from your tax returns, not pay stubs. Puneet reads them the way a lender will first, then matches you with a bank, or with a lender that looks at the business itself.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/self-employed">Self-employed mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+      <article class="svc-item" id="svc-2">
+        <figure><img src="img/help/02-investors-skyline.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">02</span>
+          <h3>Investors</h3>
+          <p>Lenders count part of your rental income and look at every property you already own. Puneet lays out your whole portfolio and finds the lender whose rules suit it, so the next purchase stays possible.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/investors">Investment property mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+      <article class="svc-item" id="svc-3">
+        <figure><img src="img/help/03-first-time-buyers-steps.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">03</span>
+          <h3>First-time home buyers</h3>
+          <p>Buying your first home in Canada. Puneet shows you what you can afford under the stress test, and how to put the FHSA and the RRSP Home Buyers' Plan toward your down payment.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/first-time-buyers">First-time buyers →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+      <article class="svc-item" id="svc-4">
+        <figure><img src="img/help/04-moving-homes-packed-car.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">04</span>
+          <h3>Moving homes</h3>
+          <p>The sale and the purchase rarely close on the same day. Puneet lines up the new mortgage with your sale date and arranges bridge financing when the money needs to arrive early.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/moving-homes">Moving homes →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+      <!-- 05 + 06 added 2026-09-29 (Fahad picked Refinancing + New to Canada). Photos owed: 3000x2000 landscape, no strangers' faces -->
+      <article class="svc-item" id="svc-5">
+        <figure><img src="img/help/05-refinancing-kitchen.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">05</span>
+          <h3>Refinancing</h3>
+          <p>Your home has built up value. Puneet works out how much of it you can borrow, to renovate, to invest or to bring other debts into one payment, and weighs that against the cost of leaving your current term early.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/refinancing">Refinancing →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+      <article class="svc-item" id="svc-6">
+        <figure><img src="img/help/06-new-to-canada-arrival.webp" alt="" loading="lazy" decoding="async"></figure>
+        <div class="t">
+          <span class="n micro">06</span>
+          <h3>New to Canada</h3>
+          <p>Several lenders have programs for permanent residents and work permit holders with a short Canadian credit history. Puneet shows you which ones fit your status and which documents each one accepts.</p>
+          <div class="acts"><a class="textlink" href="/puneet-mann-preview/new-to-canada">New to Canada →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <script>
+  (function(){var m=/[?&]svc=(grid|list|tabs|cards|fly)/.exec(location.search),k=m?m[1]:'cards' /* Fahad 2026-09-29 picked Demo 01 (cards). Tabs before: ?svc=tabs */,root=document.documentElement,sv=document.getElementById('services');
+    if(k!=='fly'){root.dataset.svc=k;sv.classList.add('svc-'+k);}})();
+  </script>
+
+  <!-- 4 · ABOUT: meet Puneet -->
+  <section class="about ab-b" id="about" data-theme="dark" aria-labelledby="about-b-h">
+    <div class="grid">
+      <div class="bound-ph"><div class="clip"><img src="img/all/p30.webp" alt="Puneet Mann in a grey blazer, walking through the office with his phone in hand" loading="lazy"></div><i class="pin"></i><i class="pin"></i><i class="pin"></i><i class="pin"></i></div>
+      <div class="txt">
+        <h2 class="caps" id="about-b-h"><span class="l1">Meet</span> <span class="acc l2">Puneet</span></h2>
+        <p class="state">Tell Puneet what you are planning. He will help you understand your mortgage options.</p>
+        <p class="desc">Canada is home to Puneet, and Brampton is where he has built his practice. He believes in hard work, fair dealing and looking out for neighbours. He brings that outlook to the people who trust him with a mortgage decision.</p>
+        <p class="desc">Licensed since 2017, Puneet works with Dominion Lending Centres Keystone Financial Experts. As a Mortgage Agent Level 2, he can arrange mortgages through banks, credit unions, alternative lenders and private lenders. That gives him different lending options to consider in light of your circumstances.</p>
+        <p class="desc">You can speak with Puneet directly about your plans, how you earn and the questions on your mind. Together, you can talk through the options before deciding what comes next.</p>
+        <div class="end">
+          <p class="lic">Mortgage Agent Level 2 · FSRA licence M17000192 · Brokerage licence 13654 · <a href="https://mbsweblist.fsco.gov.on.ca/agents.aspx" target="_blank" rel="noopener">Check it on FSRA</a>.</p>
+          <div class="acts"><a class="btn solid" href="/puneet-mann-preview/start">Get in touch</a><a class="textlink" href="/puneet-mann-preview/about">Meet the team →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · REVIEWS -->
+  <section class="revs" data-theme="light" aria-labelledby="revs-h">
+    <div class="track">
+      <div class="open">
+        <h2 class="caps" id="revs-h">What clients <span class="acc">say</span></h2>
+        <div class="fscore"><b>5.0</b><span><em class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</em>From 59 reviews on <span class="nw"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg>Google</span></span></div>
+        <a class="textlink" href="https://www.google.com/maps/place/?q=place_id:ChIJvfS5f4klK4gR0VRvdNSEoNI" target="_blank" rel="noopener"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg>See all reviews on Google →</a>
+      </div>
+      <!-- REVIEWS (Fahad 2026-10-06, the seven he shared): word for word from his Google profile, first name + last initial, full length (no cuts).
+           Source + compliance notes for Jasmeen: 00 - Source of Truth/02 - Research/06-google-reviews-2026-10-06.md. No review markup (rule 112). -->
+      <blockquote class="q full o1"><p>We have been interested in buying a home since 2019. We are both self-employed which made things complicated. Every time we started the process there was some hurdle that forced us to stop our search. When we were referred to Puneet a few months ago, we were quite defeated. Puneet looked at our file and told us with confidence, "You're going to have your home. I got you." Every step of the way, Puneet came through for us. Honest, communicative and professional. He took every phone call with compassion and answered all our questions. It was a breath of fresh air. We closed on our dream home yesterday and we are still in disbelief. Thank you, Puneet and team! You really are "The Mortgage Mann".</p><footer><span class="who">Shalini V.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poMVRtNVFXSHBYWDNoNmJraGtjV1pRUlU5RVdXYxAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOjh1Tm5QWHpXX3h6bkhkcWZQRU9EWWc%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Shalini V.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-09-19" data-ago>Sep 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full o0"><p>If you are reading whether to use their services for any kinds of financial needs, don't hesitate. They are completely on your side and not only did they rescue us from our situation but they saved us money. They saved us money in our deal more than once and none of it went to them. Their fees were absolutely reasonable, beyond reasonable in our case.</p><p>I'm very happy with not only the outcome but I look forward to doing more business with them in the upcoming months for other things. They are completely on your side, they care about what happens to your lives not chasing the "bottom line". He worked outside of regular hours due to our schedules for work and my son's schedule as well.</p><p>You will be helped, like we were, and you will be so happy that you will be telling anyone about them as well.</p><footer><span class="who">Shankar R.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21aeFJVcHlObkV0TFVKMGVXVndWWFpqTXpjMlVXYxAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOmZxRUpyNnEtLUJ0eWVwVXZjMzc2UWc%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Shankar R.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-07-06" data-ago>Jul 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full o3"><p>For many people, the dream of homeownership can feel out of reach, but Puneet made that dream a reality for our family. His guidance, expertise, and dedication made the mortgage approval process smooth and stress-free from start to finish. He was always available to answer our questions and provided clear advice every step of the way. We are incredibly grateful for his support and would highly recommend his services to anyone looking for a knowledgeable and trustworthy mortgage agent.</p><footer><span class="who">Amrita R.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21abWVqWkJNMVpETFhKM05FVnhTV2x1Y21OQ1VrRRAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOmZmejZBM1ZDLXJ3NEVxSWlucmNCUkE%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Amrita R.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-06-19" data-ago>Jun 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full o0"><p>Puneet provided an outstanding experience from start to finish. He was extremely professional, knowledgeable, and always available whenever I needed guidance. What really stood out was how quickly he responded and how clearly he explained every step of the process.</p><p>No matter how busy things were, Puneet always made time to answer questions, meet on short notice, and ensure everything moved smoothly. His dedication, reliability, and commitment to client satisfaction truly made the entire experience stress-free.</p><p>I would highly recommend Puneet to anyone looking for someone trustworthy, responsive, and genuinely committed to helping their clients succeed.</p><footer><span class="who">Alkesh P.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SelEwNVZUVnBZUTI1SGVEbG5UMVIwY25wVFNuYxAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOmRzQ05VTVpYQ25HeDlnT1R0cnpTSnc%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Alkesh P.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-05-26" data-ago>May 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full short o4"><p>Puneet was a great person to work with to secure my mortgage. He guided me through every step of the way to a successful closing. I would highly recommend him</p><footer><span class="who">Earl M.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKc1dGZDZjWFl5YkRSc1pTMHlibGN3VUhCRk1FRRAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOlJsWFd6cXYybDRsZS0yblcwUHBFMEE%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Earl M.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-04-01" data-ago>Apr 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full o2"><p>Puneet was introduced to us by a friend at a time when our hopes of securing mortgage financing were very slim. From our first conversation, he was patient, transparent, and incredibly supportive. He walked us through every step of the process, always made himself available to take our calls, and consistently reassured us along the way.</p><p>Thanks to his dedication and professionalism, our dream of owning a home is now a reality. I’m truly grateful and will gladly recommend Puneet again and again. Keep up the excellent work!</p><footer><span class="who">Stella</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25RMFVIaGhVeTFaWVV4R01EUnllbWhUUVhBMGFXYxAB!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CAIQACodChtycF9oOnQ0UHhhUy1ZYUxGMDRyemhTQXA0aWc%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Stella's review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2026-02-12" data-ago>Feb 2026</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <blockquote class="q full o1"><p>We were referred to Puneet by a friend for a condo closing. We were very tight on time and it was a stressful time (for us). Working with a professional like Puneet made this process so much easier. He was always very calming and answering our many questions with so much patience. Having had some poor experiences with others, we were weary of starting fresh with someone new. But his responsiveness, knowledge and very approachable demeanor puts him above all the rest! We look forward to working with Puneet again (in the very near future haha)</p><footer><span class="who">Amada T.</span><span class="st" role="img" aria-label="Rated 5 out of 5">★★★★★</span><a class="gr" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUMxc05ES0J3EAE!2m1!1s0x0:0xd2a084d4746f54d1!3m1!1s2@1:CIHM0ogKEICAgIC1sNDKBw%7C%7C?hl=en" target="_blank" rel="noopener" aria-label="Read Amada T.'s review on Google"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg><span>Google review</span><span class="dot" aria-hidden="true">·</span><time datetime="2023-12-20" data-ago>Dec 2023</time><span aria-hidden="true">↗</span></a></footer></blockquote>
+      <div class="end"><a class="textlink" href="https://www.google.com/maps/place/?q=place_id:ChIJvfS5f4klK4gR0VRvdNSEoNI" target="_blank" rel="noopener"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.6-3.9-12.3-9.1H4.4v5.7C8 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.7 28.2c-.4-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.4C2.9 17.1 2 20.4 2 24s.9 6.9 2.4 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8 6.9 4.4 14.1l7.3 5.7c1.7-5.2 6.6-9 12.3-9z"/></svg>See all reviews on Google →</a></div>
+    </div>
+  </section>
+
+  <!-- 6 · A B C -->
+  <section class="abc" id="abc" data-theme="light" aria-labelledby="abc-h">
+    <div class="head">
+      <h2 class="caps" id="abc-h"><span class="acc">A, B</span> and <span class="acc">C</span> lending</h2>
+      <p>Mortgage lenders assess income, credit and property differently. Puneet’s Level 2 licence lets him explore A, B and C options with you.</p>
+    </div>
+    <div class="doors">
+      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">A</span><span class="d">Banks and credit unions</span><span class="x">Standard criteria and typically lower costs.</span></a>
+      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">B</span><span class="d">Alternative lenders</span><span class="x">Different ways to consider income and credit.</span></a>
+      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">C</span><span class="d">Private lenders</span><span class="x">Often short-term, with higher costs and an exit plan.</span></a>
+    </div>
+    <p class="more"><a class="textlink" href="/puneet-mann-preview/abc-lending">How A, B and C lending works →</a></p>
+    <img class="peeker" src="img/cut-35.webp" alt="" decoding="async" width="1000" height="1900">
+  </section>
+
+  <!-- 7 · VIDEOS -->
+  <section class="vids" id="vids" data-theme="light" aria-labelledby="vids-h">
+    <div class="head">
+      <h2 class="caps" id="vids-h">Latest <span class="acc">videos</span></h2>
+      <a class="textlink" href="https://www.instagram.com/themortgage_mann/" target="_blank" rel="noopener">@themortgage_mann on Instagram →</a>
+    </div>
+    <div class="grid">
+      <!-- Fahad's picks 2026-10-06 (record: 00 - Source of Truth/02 - Research/07-instagram-reels-2026-10-06.md). Order is his.
+           The 4th (first-time buyers) moved here from /first-time-buyers: "all 4 of them go on the homepage because we dont have
+           enough reels to add to 6 other pages". No situation page carries a reel.
+           fixed-or-adjustable is "for now": it states a rate forecast as fact and is 360p, flagged for Jasmeen + a replacement. -->
+      <button class="reel" type="button" data-reel data-ig="https://www.instagram.com/reel/DN52ejWx9ws/" data-title="Fixed or adjustable rate?" aria-label="Play video: Fixed or adjustable rate?, 59 seconds">
+        <video muted playsinline loop preload="none" poster="img/vids/fixed-or-adjustable.webp" tabindex="-1" aria-hidden="true"><source src="img/vids/fixed-or-adjustable.mp4" type="video/mp4"></video>
+        <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+      </button>
+      <button class="reel" type="button" data-reel data-ig="https://www.instagram.com/reel/DN0sXKvxtoS/" data-title="Puneet plays this or that" aria-label="Play video: Puneet plays this or that, 44 seconds">
+        <video muted playsinline loop preload="none" poster="img/vids/this-or-that.webp" tabindex="-1" aria-hidden="true"><source src="img/vids/this-or-that.mp4" type="video/mp4"></video>
+        <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+      </button>
+      <button class="reel" type="button" data-reel data-ig="https://www.instagram.com/reel/DNqZFOJRr7V/" data-title="Questions to answer before you buy" aria-label="Play video: Questions to answer before you buy, 33 seconds">
+        <video muted playsinline loop preload="none" poster="img/vids/quick-questions.webp" tabindex="-1" aria-hidden="true"><source src="img/vids/quick-questions.mp4" type="video/mp4"></video>
+        <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+      </button>
+      <button class="reel" type="button" data-reel data-ig="https://www.instagram.com/reel/DNvixaVRmxv/" data-title="What matters most for a first-time buyer" aria-label="Play video: What matters most for a first-time buyer, 1 minute 29 seconds">
+        <video muted playsinline loop preload="none" poster="img/vids/first-time-buyers.webp" tabindex="-1" aria-hidden="true"><source src="img/vids/first-time-buyers.mp4" type="video/mp4"></video>
+        <span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 8 · FOOTER / START -->
+  <footer class="foot" id="start" data-theme="dark">
+    <!-- CENTRED INVITATION (Fahad 2026-10-05, demo 07 option 2): same as the site's Footer.astro. Button to /start (the calendar page) -->
+    <div class="invite" id="book">
+      <span class="micro">Get in touch</span>
+      <h2 class="caps">Let’s start <span class="acc">a&nbsp;conversation</span></h2>
+      <div class="invite-lead"><p>Connect with Puneet to discuss where you are today and what you’d like to achieve. Choose a time that works for you.</p></div>
+      <a class="btn" href="/puneet-mann-preview/start">Book a conversation</a>
+    </div>
+    <!-- LOWER BLOCK (2026-10-10, Demo 19 layout 1 "One row", white): same as the site's Footer.astro, kept in step by hand. Icons, not words, for the outside links. -->
+    <div class="low"><div class="in">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
+      <div class="row">
+        <div>
+          <a class="fmark" href="/puneet-mann-preview/" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
+          <p class="based">Based in Brampton, working with clients across the GTA.</p>
+        </div>
+        <ul class="flinks">
+          <li><a href="#services">Mortgage services</a></li>
+          <li><a href="/puneet-mann-preview/abc-lending">A, B and C lending</a></li>
+          <li><a href="/puneet-mann-preview/calculator">Calculator</a></li>
+          <li><a href="/puneet-mann-preview/about">About</a></li>
+        </ul>
+        <ul class="ficons">
+          <li><a href="https://www.instagram.com/themortgage_mann/" target="_blank" rel="noopener" aria-label="Puneet on Instagram" title="Instagram"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9"/></svg></a></li>
+          <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJvfS5f4klK4gR0VRvdNSEoNI" target="_blank" rel="noopener" aria-label="Puneet on Google, rated 5.0 from 59 reviews" title="Google reviews"><svg class="gg" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="fscore" aria-hidden="true">5.0<i>★</i></span></a></li>
+          <li><a href="https://mbsweblist.fsco.gov.on.ca/agents.aspx" target="_blank" rel="noopener" aria-label="Check his licence on FSRA’s public register" title="Licence check, FSRA"><svg class="bd" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M12 2.5 4 5.6v5.6c0 4.9 3.4 8.8 8 10.3 4.6-1.5 8-5.4 8-10.3V5.6L12 2.5z"/><path class="tick" d="m8.8 12.2 2.2 2.2 4.4-4.9"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="licence">
+        <span>Puneet Mann, Mortgage Agent Level 2 · Dominion Lending Centres Keystone Financial Experts · Brokerage Licence #13654 · Independently owned and operated</span>
+        <span>© 2026 · <a href="/puneet-mann-preview/privacy">Privacy</a></span>
+      </div>
+    </div></div>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* ---------- survey lot-line pattern ---------- */
+  function rng(seed){return function(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;}}
+  function plan(svg, seed){
+    var r=svg.getBoundingClientRect(), w=Math.max(r.width,320), h=Math.max(r.height,320), R=rng(seed*97+13), d='';
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    function bez(p,t){var u=1-t;return[u*u*u*p[0][0]+3*u*u*t*p[1][0]+3*u*t*t*p[2][0]+t*t*t*p[3][0],u*u*u*p[0][1]+3*u*u*t*p[1][1]+3*u*t*t*p[2][1]+t*t*t*p[3][1]];}
+    var streets=Math.max(2+Math.floor(R()*2),Math.round(h/430));
+    for(var s=0;s<streets;s++){
+      var y0=h*(0.1+R()*0.8), y1=h*(0.1+R()*0.8), vertical=R()<0.35;
+      var p=vertical?[[w*(0.1+R()*0.8),-60],[w*R(),h*0.35],[w*R(),h*0.65],[w*(0.1+R()*0.8),h+60]]
+                    :[[-60,y0],[w*0.33,h*R()],[w*0.66,h*R()],[w+60,y1]];
+      var edgeA='',edgeB='',rearA='',rearB='',acc=0,prev=null,lot=30+R()*14,road=11,depth=58+R()*18;
+      for(var i=0;i<=500;i++){
+        var t=i/500,pt=bez(p,t),nx=bez(p,Math.min(1,t+0.002)),dx=nx[0]-pt[0],dy=nx[1]-pt[1],L=Math.hypot(dx,dy)||1,ux=-dy/L,uy=dx/L;
+        var a=[pt[0]+ux*road,pt[1]+uy*road],b=[pt[0]-ux*road,pt[1]-uy*road],ra=[pt[0]+ux*(road+depth),pt[1]+uy*(road+depth)],rb=[pt[0]-ux*(road+depth),pt[1]-uy*(road+depth)];
+        var c=(i?'L':'M');
+        edgeA+=c+a[0].toFixed(1)+' '+a[1].toFixed(1);edgeB+=c+b[0].toFixed(1)+' '+b[1].toFixed(1);
+        rearA+=c+ra[0].toFixed(1)+' '+ra[1].toFixed(1);rearB+=c+rb[0].toFixed(1)+' '+rb[1].toFixed(1);
+        if(prev){acc+=Math.hypot(pt[0]-prev[0],pt[1]-prev[1]);}
+        if(acc>=lot){acc=0;d+='M'+a[0].toFixed(1)+' '+a[1].toFixed(1)+'L'+ra[0].toFixed(1)+' '+ra[1].toFixed(1)+'M'+b[0].toFixed(1)+' '+b[1].toFixed(1)+'L'+rb[0].toFixed(1)+' '+rb[1].toFixed(1);}
+        prev=pt;
+      }
+      d+=edgeA+edgeB+rearA+rearB;
+    }
+    svg.innerHTML='<path d="'+d+'"/>';
+  }
+  function drawPlans(){document.querySelectorAll('svg.plan').forEach(function(s){plan(s,+s.dataset.plan);});}
+  /* ---------- the road ---------- */
+  var ROAD_ON=1e9, road=document.getElementById('road'), trailSvg=document.getElementById('trail'), townCv=document.getElementById('town'),townCx=townCv.getContext('2d'), TIP=.62, table=[], total=1, trails=[], town=[];
+  function drawRoad(){
+    var W=document.documentElement.clientWidth, H=document.documentElement.scrollHeight, narrow=W<761;
+    var amp=W*(narrow?.3:.33), mid=W*.5, P=narrow?1300:1700, STEP=6, ROAD=narrow?8:11, DEPTH=narrow?44:62, LOT=narrow?28:36;
+    function Xw(y){return mid+amp*Math.sin(2*Math.PI*y/P+1.1)*(0.85+0.15*Math.sin(2*Math.PI*y/(P*3.7)));}
+    // With the split hero (Fahad 2026-09-24) the road starts under the hero, straight down the seam the split
+    // opens, then eases into its winding course; its start is hidden by the hero, so it can show from the top.
+    // Otherwise it begins at "How I can help" (Fahad 2026-09-23), hidden until that section fills the screen.
+    var split=root.dataset.intro==='2', VH=innerHeight;
+    function X(y){if(!split)return Xw(y);var t=Math.max(0,Math.min(1,(y-VH*.6)/(VH*1.4)));t=t*t*(3-2*t);return mid*(1-t)+Xw(y)*t;}
+    var hs=document.querySelector('.help'), hb=hs.parentElement.classList.contains('pin-spacer')?hs.parentElement:hs, Y0=split?-40:Math.round(hb.getBoundingClientRect().top+scrollY);
+    var pts=[];for(var y=Y0;y<=H+40;y+=STEP)pts.push([X(y),y]);
+    ROAD_ON=split?-1e9:Y0-4;
+    var anchors=[];
+    var cl='',ea='',eb='',ra='',rb='',lots='',acc=0,len=0;table=[];
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i],q=pts[Math.min(i+1,pts.length-1)],o=pts[Math.max(i-1,0)],dx=q[0]-o[0],dy=q[1]-o[1],L=Math.hypot(dx,dy)||1,ux=-dy/L,uy=dx/L,c=i?'L':'M';
+      if(i){var seg=Math.hypot(p[0]-pts[i-1][0],p[1]-pts[i-1][1]);len+=seg;acc+=seg;}
+      table.push([p[1],len]);
+      var f=function(d){return (p[0]+ux*d).toFixed(1)+' '+(p[1]+uy*d).toFixed(1);};
+      cl+=c+p[0].toFixed(1)+' '+p[1].toFixed(1);ea+=c+f(ROAD);eb+=c+f(-ROAD);ra+=c+f(ROAD+DEPTH);rb+=c+f(-ROAD-DEPTH);
+      if(acc>=LOT){acc=0;lots+='M'+f(ROAD)+'L'+f(ROAD+DEPTH)+'M'+f(-ROAD)+'L'+f(-ROAD-DEPTH);anchors.push([p[0],p[1],Math.atan2(uy,ux)*180/Math.PI-90]);}
+    }
+    total=len;
+    drawTown(anchors,ROAD,DEPTH,LOT,W,H);
+    var faint='<path class="faint" d="'+ea+eb+ra+rb+lots+'"/>', trail='<path class="trail" d="'+ea+'"/><path class="trail" d="'+eb+'"/>', svg=faint+trail;
+    [[road,faint],[trailSvg,trail]].forEach(function(x){var el=x[0];el.setAttribute('viewBox','0 0 '+W+' '+H);el.style.height=H+'px';el.setAttribute('width',W);el.setAttribute('height',H);el.innerHTML=x[1];});
+    // the hero card holds only the first screen of the road, drawn once: a snapshot of the hero,
+    // so the card never repaints while it shrinks (page-tall copy cost 81 dropped frames)
+    var VH=innerHeight, f0=reduce?1:lenAt(VH*TIP)/total;
+    trails=[].slice.call(document.querySelectorAll('#trail .trail'));
+    trails.forEach(function(t){var l=t.getTotalLength();t.style.strokeDasharray=l;t.dataset.l=l;});
+    moveRoad();
+  }
+  function lenAt(y){
+    if(!table.length)return 0; if(y<=table[0][0])return 0; if(y>=table[table.length-1][0])return total;
+    var lo=0,hi=table.length-1;while(hi-lo>1){var m=(lo+hi)>>1;if(table[m][0]<y)lo=m;else hi=m;}
+    var a=table[lo],b=table[hi];return a[1]+(b[1]-a[1])*(y-a[0])/((b[0]-a[0])||1);
+  }
+  /* the neighbourhood: each lot between two lot lines may hold a house, a hip-roof house, a row of
+     townhouses, a shop behind its parking, or a tree; drawn in site-plan view, facing the road */
+  function townKinds(ROAD,DEPTH,LOT,R){
+    var y0,y1,w,d,h;
+    var rect=function(a,b,c,e){return [[a,b],[c,b],[c,e],[a,e],[a,b]];};
+    var circ=function(cx,cy,r){var p=[];for(var i=0;i<=24;i++){var t=i/24*Math.PI*2;p.push([cx+r*Math.cos(t),cy+r*Math.sin(t)]);}return p;};
+    return {
+      house:function(){w=LOT*.72;d=DEPTH*.46;y0=ROAD+DEPTH*.2;y1=y0+d;h=(y0+y1)/2;
+        return [rect(-w/2,y0,w/2,y1),[[-w/2,h],[w/2,h]],[[w/2-5,y0],[w/2-5,ROAD]],[[w/2-12,y0],[w/2-12,ROAD]]];},
+      hip:function(){w=LOT*.78;d=DEPTH*.5;y0=ROAD+DEPTH*.18;y1=y0+d;h=(y0+y1)/2;var k=d/2;
+        return [rect(-w/2,y0,w/2,y1),[[-w/2,y0],[-w/2+k,h],[w/2-k,h],[w/2,y0]],[[-w/2,y1],[-w/2+k,h]],[[w/2,y1],[w/2-k,h]],[[-w/2+4,y0],[-w/2+4,ROAD]],[[-w/2+11,y0],[-w/2+11,ROAD]]];},
+      row:function(){w=LOT*1.75;d=DEPTH*.42;y0=ROAD+DEPTH*.24;y1=y0+d;h=(y0+y1)/2;var o=[rect(-w/2,y0,w/2,y1)];for(var i=1;i<4;i++)o.push([[-w/2+w*i/4,y0],[-w/2+w*i/4,y1]]);o.push([[-w/2,h],[w/2,h]]);return o;},
+      shop:function(){w=LOT*1.6;y0=ROAD+DEPTH*.46;y1=ROAD+DEPTH*.9;var o=[rect(-w/2,y0,w/2,y1),[[-w/2+3,y0+4],[w/2-3,y0+4]]];for(var x=-w/2+4;x<w/2-2;x+=7)o.push([[x,ROAD+3],[x,ROAD+DEPTH*.36]]);return o;},
+      tree:function(){var r=DEPTH*.13,cy=ROAD+DEPTH*.52,x=(R()-.5)*LOT*.4;return [circ(x,cy,r),circ(x+r*.35,cy-r*.2,r*.42)];}
+    };
+  }
+  function drawTown(A,ROAD,DEPTH,LOT,W,H){
+    // each piece is a list of polylines in its own frame (x along the road, y away from it), placed on a lot
+    var R=rng(41),kinds=townKinds(ROAD,DEPTH,LOT,R);
+    town=[];var busy={'1':-9,'-1':-9};
+    for(var i=0;i<A.length;i++){
+      [1,-1].forEach(function(side){
+        if(busy[side]===i)return; // the lot beside a townhouse row or a shop stays with it
+        var r=R(),k=r<.36?'house':r<.56?'hip':r<.66?'row':r<.72?'shop':r<.9?'tree':null;if(!k)return;
+        if(k==='row'||k==='shop'){if(i+1>=A.length)k='house';else busy[side]=i+1;}
+        var a=A[i],th=a[2]*Math.PI/180,c=Math.cos(th),sn=Math.sin(th),minY=1e9,maxY=-1e9;
+        var parts=kinds[k]().map(function(pl){var L=0,pts=pl.map(function(q){var lx=q[0],ly=q[1]*side,x=a[0]+lx*c-ly*sn,y=a[1]+lx*sn+ly*c;minY=Math.min(minY,y);maxY=Math.max(maxY,y);return [x,y];});
+          var cum=[0];for(var n=1;n<pts.length;n++){L+=Math.hypot(pts[n][0]-pts[n-1][0],pts[n][1]-pts[n-1][1]);cum.push(L);}return {pts:pts,cum:cum,L:L};});
+        town.push({y:a[1],top:minY,bot:maxY,parts:parts});
+      });
+    }
+    sizeTown();
+  }
+  var tdpr=1;
+  function sizeTown(){tdpr=Math.min(devicePixelRatio||1,2);townCv.width=Math.round(innerWidth*tdpr);townCv.height=Math.round(innerHeight*tdpr);paintTown();}
+  // draw the lots on screen: the ones the trail has reached build themselves over the next stretch of scroll
+  function paintTown(){
+    var cx=townCx,top=scrollY,H=innerHeight,tip=reduce?1e9:top+H*TIP,SPAN=H*.22;
+    cx.setTransform(tdpr,0,0,tdpr,0,0);cx.clearRect(0,0,innerWidth,H);
+    cx.setTransform(tdpr,0,0,tdpr,0,-top*tdpr);
+    cx.lineWidth=1.1;cx.lineCap='round';cx.lineJoin='round';
+    var dark=root.classList.contains('is-dark');cx.strokeStyle=dark?'rgba(211,182,90,.72)':'rgba(154,116,31,.55)';
+    cx.beginPath();
+    for(var k=0;k<town.length;k++){var t=town[k];if(t.bot<top-20||t.top>top+H+20)continue;
+      var p=Math.max(0,Math.min(1,(tip-t.y)/SPAN));if(!p)continue;var n=t.parts.length;
+      for(var j=0;j<n;j++){var q=Math.max(0,Math.min(1,p*(1+.35*(n-1))-.35*j));if(!q)continue;var P=t.parts[j],want=q*P.L,pts=P.pts;
+        cx.moveTo(pts[0][0],pts[0][1]);
+        for(var m=1;m<pts.length;m++){if(P.cum[m]<=want){cx.lineTo(pts[m][0],pts[m][1]);}else{var s0=P.cum[m-1],f=(want-s0)/((P.cum[m]-s0)||1);cx.lineTo(pts[m-1][0]+(pts[m][0]-pts[m-1][0])*f,pts[m-1][1]+(pts[m][1]-pts[m-1][1])*f);break;}}}}
+    cx.stroke();
+  }
+  function moveRoad(){
+    root.classList.toggle('road-on',reduce||scrollY>=ROAD_ON);
+    var f=reduce?1:lenAt(scrollY+innerHeight*TIP)/total;
+    for(var i=0;i<trails.length;i++){var l=+trails[i].dataset.l;trails[i].style.strokeDashoffset=l*(1-f);}
+    paintTown();
+  }
+  var ROAD_OFF=true; // Fahad 2026-09-24: "remove the road in the background for now". false = road, trail and town back
+  root.classList.toggle('road-off',ROAD_OFF);
+  drawRoad();
+  if(!ROAD_OFF)addEventListener('scroll',moveRoad,{passive:true});
+  drawPlans();
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawRoad,200);});
+
+
+  /* the top bar's real height, for centring the hero name under it */
+  var hdrEl=document.querySelector('.hdr');function hdrH(){root.style.setProperty('--hdr-h',hdrEl.offsetHeight+'px');}hdrH();addEventListener('resize',hdrH);
+
+  /* menu */
+  var menu=document.getElementById('menu'),burger=document.querySelector('.burger');
+  function setMenu(o){menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);if(o)menu.querySelector('.close').focus();else burger.focus();}
+  burger.addEventListener('click',function(){setMenu(true);});
+  menu.querySelector('.close').addEventListener('click',function(){setMenu(false);});
+  menu.addEventListener('click',function(e){if(e.target.closest('nav a'))setMenu(false);});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))setMenu(false);});
+
+
+
+  if(!window.gsap||reduce){
+    document.querySelectorAll('[data-theme]').forEach(function(s){});
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+
+  /* smooth scroll: Lenis synced to GSAP's ticker (house standard, lerp .1) */
+  if(window.Lenis){
+    var lenis=new Lenis({lerp:.1}); window.__lenis=lenis;
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(function(t){lenis.raf(t*1000);});
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:0});}});});
+  }
+
+
+  /* 1 · hero entrance */
+  var intro=gsap.timeline({defaults:{ease:'expo.out'},paused:!!window.__loaderOn});
+  if(window.__loaderOn){if(window.__lenis)window.__lenis.stop();window.__afterLoader.push(function(){intro.play();if(window.__lenis)window.__lenis.start();});}
+  intro.from('.split-photo img',{scale:1.08,duration:1.8})
+       .from('.split-copy .micro, .split-copy h1, .split-copy p, .split-copy .acts, .split-copy .langs',{y:34,opacity:0,duration:1.1,stagger:.08},.2)
+       .from('.mark .l1,.mark .l2',{yPercent:110,opacity:0,duration:1.1,stagger:.08},.2)
+       .from('.topnav .tn-item, .hdr .right > *',{y:-20,opacity:0,duration:.9,stagger:.06},.5);
+
+  var mm=gsap.matchMedia();
+
+  /* 2 · the hero sheet shrinks into a card over the navy;
+     a brass survey boundary is drawn around the finished card */
+  var bound=document.querySelector('.bound'), rect=bound.querySelector('rect'), pins=bound.querySelectorAll('circle');
+  var introST;
+  function placeBound(scale){
+    var W=innerWidth,H=document.querySelector('.intro').offsetHeight,w=W*scale+28,h=H*scale+28,x=(W-w)/2,y=(H-h)/2;
+    rect.setAttribute('x',x);rect.setAttribute('y',y);rect.setAttribute('width',w);rect.setAttribute('height',h);
+    [[x,y],[x+w,y],[x+w,y+h],[x,y+h]].forEach(function(c,i){pins[i].setAttribute('cx',c[0]);pins[i].setAttribute('cy',c[1]);});
+    var len=2*(w+h);rect.style.strokeDasharray=len;return len;
+  }
+  var IV=root.dataset.intro||'2', help=document.querySelector(root.dataset.svc?'.svc':'.help'); // the neutral section replaces the fly-through when chosen
+  mm.add({wide:'(min-width: 761px)',narrow:'(max-width: 760px)'},function(ctx){
+    var wide=ctx.conditions.wide, sheet=document.querySelector('.sheet'), veil=document.querySelector('.veil'), copyBits='.split-copy .acts,.split-copy .langs,.split-copy p';
+    var pinLen={'1':'+=220%','2':'+=175%','3':'+=150%','4':'+=100%'}[IV], LV=root.dataset.logo||'now';
+    if(IV==='2')pinLen='+=120%'; // the logo now plays on the loading screen, so the gap no longer needs room for it
+    var tl=gsap.timeline({scrollTrigger:{trigger:'.intro',start:'top top',end:pinLen,scrub:1,pin:true,anticipatePin:1,invalidateOnRefresh:true}});
+    introST=tl.scrollTrigger;
+    tl.eventCallback('onUpdate',function(){if(window.__theme)window.__theme();});
+    if(IV==='1'){
+      // 1 · the camera pulls back from the hero until the photo is one lot on the map; the photo gives way
+      // to the house's plan, and the brass road draws from its door towards How I can help
+      var cv=document.querySelector('.imap'),cx=cv.getContext('2d'),W,H,Z0,hw,hh,dpr,map,trailPts,trailL;
+      var st={z:1,house:0,trail:0,map:1};
+      function build(){
+        dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=document.querySelector('.intro').offsetHeight;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+        hw=wide?64:36;hh=hw*H/W;Z0=W/(2*hw);st.z=Z0;
+        var R=rng(7),ROAD=11,DEPTH=62,LOT=36,kinds=townKinds(ROAD,DEPTH,LOT,R),X=W/2+120,Y=H/2+120,VX=wide?300:120,streets=[];
+        for(var k=-3;k<=3;k++)streets.push(hh+30+ROAD+k*(DEPTH*2+ROAD*2+40));
+        var faint=[],houses=[];
+        streets.forEach(function(sy){
+          faint.push([[-X,sy-ROAD],[X,sy-ROAD]],[[-X,sy+ROAD],[X,sy+ROAD]],[[-X,sy-ROAD-DEPTH],[X,sy-ROAD-DEPTH]],[[-X,sy+ROAD+DEPTH],[X,sy+ROAD+DEPTH]]);
+          for(var x=-X;x<X;x+=LOT){
+            [-1,1].forEach(function(side){
+              if(Math.abs(x+LOT/2-VX)<LOT*1.5)return;                                   // the cross street
+              if(side<0&&Math.abs(sy-(hh+30+ROAD))<1&&Math.abs(x+LOT/2)<hw+LOT)return; // his lot
+              faint.push([[x,sy+side*ROAD],[x,sy+side*(ROAD+DEPTH)]]);
+              var r=R(),kd=r<.3?'house':r<.44?'hip':r<.7?'tree':null;if(!kd)return; // sparser than the road's town: a quiet street, not wallpaper
+              kinds[kd]().forEach(function(pl){houses.push(pl.map(function(q){return [x+LOT/2+q[0],sy+side*q[1]];}));});
+            });
+          }
+        });
+        faint.push([[VX-ROAD,-Y],[VX-ROAD,Y*3]],[[VX+ROAD,-Y],[VX+ROAD,Y*3]]);
+        var sy0=hh+30+ROAD;
+        map={faint:faint,houses:houses,his:[[[-hw,-hh],[hw,-hh],[hw,hh],[-hw,hh],[-hw,-hh]],[[-hw,0],[hw,0]],[[hw-22,hh],[hw-22,sy0-ROAD]],[[hw-34,hh],[hw-34,sy0-ROAD]]]};
+        trailPts=[[hw-28,hh],[hw-28,sy0],[VX,sy0],[VX,H*2]];trailL=0;for(var n=1;n<trailPts.length;n++)trailL+=Math.hypot(trailPts[n][0]-trailPts[n-1][0],trailPts[n][1]-trailPts[n-1][1]);
+      }
+      function poly(pl){cx.moveTo(pl[0][0],pl[0][1]);for(var n=1;n<pl.length;n++)cx.lineTo(pl[n][0],pl[n][1]);}
+      function draw(){
+        var z=st.z;cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,W,H);if(st.map<=0)return;
+        cx.setTransform(dpr*z,0,0,dpr*z,dpr*W/2,dpr*H/2);cx.lineCap='round';cx.lineJoin='round';cx.globalAlpha=st.map;
+        cx.strokeStyle='rgba(211,182,90,.2)';cx.lineWidth=1/z;cx.beginPath();map.faint.forEach(poly);cx.stroke();
+        cx.strokeStyle='rgba(211,182,90,.62)';cx.lineWidth=1.1/z;cx.beginPath();map.houses.forEach(poly);cx.stroke();
+        if(st.house>0){cx.globalAlpha=st.map*st.house;cx.strokeStyle='rgba(232,201,108,.95)';cx.lineWidth=1.6/z;cx.beginPath();map.his.forEach(poly);cx.stroke();cx.globalAlpha=st.map;}
+        if(st.trail>0){var want=st.trail*trailL,acc=0;cx.strokeStyle='#d3b65a';cx.lineWidth=2.2/z;cx.beginPath();cx.moveTo(trailPts[0][0],trailPts[0][1]);
+          for(var n=1;n<trailPts.length;n++){var a=trailPts[n-1],b=trailPts[n],L=Math.hypot(b[0]-a[0],b[1]-a[1]);if(acc+L<=want){cx.lineTo(b[0],b[1]);acc+=L;}else{var f=(want-acc)/L;cx.lineTo(a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f);break;}}cx.stroke();}
+        cx.globalAlpha=1;
+        gsap.set(sheet,{scale:z*2*hw/W});
+      }
+      build();draw();
+      var ZE=wide?1.7:1.5; // stop pulling back while his house is still a clear shape on the map
+      window.__introDark=function(){return st.z<Z0*.93;};
+      tl.fromTo(st,{z:function(){return Z0;}},{z:ZE,duration:1,ease:'power3.inOut',onUpdate:draw},0)
+        .to(copyBits,{opacity:0,duration:.2},0)
+        .to(sheet,{autoAlpha:0,duration:.18},.86)
+        .to(st,{house:1,duration:.2,onUpdate:draw},.86)
+        .to(st,{trail:1,duration:.55,onUpdate:draw},1.06)
+        .to({},{duration:.25})
+        .to(st,{map:0,duration:.45,onUpdate:draw});
+      addEventListener('resize',function(){build();draw();});
+      return function(){window.__introDark=null;gsap.set(sheet,{clearProps:'all'});};
+    }
+    if(IV==='2'){
+      // 2 · the hero splits: the words slide off one way, the photo the other, and the blue is underneath
+      window.__introDark=function(){return tl.progress()>.04;}; // the gap is blue from the moment it opens, so the road reads in it
+      // ...but the header's wordmark still sits over the light half: keep it dark until that half has slid out from under it
+      var cp=document.querySelector('.split-copy');
+      tl.eventCallback('onUpdate',function(){if(window.__theme)window.__theme();root.classList.toggle('mark-ink',wide&&tl.progress()<1&&cp.getBoundingClientRect().right>190);});
+      // the DLC Keystone logo: small in the middle of the opening gap, grows to a confident size (never a
+      // takeover: the brand is Puneet's), holds, then shrinks into a badge bottom-left for How I can help
+      var dlc=document.querySelector('.dlc'),logo=document.querySelector('.dlc-in'),gut=parseFloat(getComputedStyle(root).getPropertyValue('--gutter'))||20;
+      var cX=function(){return innerWidth/2-logo.offsetWidth/2;},cY=function(){return innerHeight/2-logo.offsetHeight/2;};
+      // big in the middle (Fahad: "a lot bigger"), then down to a fixed-size badge: 138px wide on wide screens, 78px on phones
+      var B=function(){return (wide?138:78)/logo.offsetWidth;},S=function(){return 90/logo.offsetWidth;};
+      // badge settles bottom-RIGHT (Fahad 2026-09-24)
+      var bX=function(){var w=logo.offsetWidth;return innerWidth-gut-w/2-w*B()/2;},bY=function(){return innerHeight-(wide?28:18)-logo.offsetHeight*B()/2-logo.offsetHeight/2;};
+      tl.to('.split-copy',Object.assign(wide?{xPercent:-100}:{yPercent:100},{duration:1,ease:'power2.inOut'}),.05)
+        .to('.split-photo',Object.assign(wide?{xPercent:100}:{yPercent:-100},{duration:1,ease:'power2.inOut'}),.05);
+      // GAP HEADING (Fahad 2026-09-29): appears as the halves part, then (wide) travels into the section's heading
+      var G=document.querySelector('.gsvc'),GIN=G.querySelector('.gsvc-in'),GHW=G.querySelector('.gsvc-hw'),GPW=G.querySelector('.gsvc-pw'),GH=G.querySelector('.gsvc-h'),GP=G.querySelector('.gsvc-p'),SV=document.getElementById('services');
+      var handOff=null,hold=null,cardsIn=false;
+      if(G&&SV&&root.dataset.svc==='cards'){
+        var RH=SV.querySelector('.svc-head h2'),RS=SV.querySelector('.svc-head .sub-line'),CN=SV.querySelector('.cards-nav'),CARDS=[].slice.call(SV.querySelectorAll('.scard'));
+        // two owners, never the same element: the (lagging, scrubbed) hero timeline fades the OUTER wrappers in,
+        // the hand-off below moves/fades the heading and paragraph themselves. Same element = they fight (bug found 2026-09-29).
+        gsap.set(G,{autoAlpha:1});
+        tl.fromTo(GIN,{autoAlpha:0},{autoAlpha:1,duration:.3,ease:'none'},.3)
+          .fromTo(GHW,{y:26},{y:0,duration:.45,ease:'power2.out'},.3)
+          .fromTo(GPW,{y:26,opacity:0},{y:0,opacity:1,duration:.4,ease:'power2.out'},.45);
+        // the cards (and their arrows) wait for the heading to land, then rise one by one (house entrance)
+        gsap.set(CARDS.concat(CN),{opacity:0,y:70,filter:'blur(8px)'});
+        var landCards=function(){if(cardsIn)return;cardsIn=true;var vis=CARDS.filter(function(c){return !c.hidden;});
+          gsap.to([CN].concat(vis),{opacity:1,y:0,filter:'blur(0px)',duration:1.3,ease:'expo.out',stagger:.14,clearProps:'filter'});
+          gsap.set(CARDS.filter(function(c){return c.hidden;}),{opacity:1,y:0,filter:'none'});};
+        // ease-OUT, not in-out (Fahad 2026-10-01: "a bit of a lag, the heading and subcopy are a little stagnant when you swipe"):
+        // the in-out curve left the heading still for the first ~250px of scroll (364 → 342) and the last ~150. This one moves
+        // from the first pixel and settles as the section lands.
+        var ease=function(t){return 1-Math.pow(1-t,2.2);};var rng=document.createRange();
+        // HOLD (Fahad 2026-10-01: "it transitions too quick where the title disappears, there should be a small pause"):
+        // once the heading has landed, the section stays put for half a screen of scroll while the cards rise, then moves on.
+        // Starts exactly where the hand-off ends; created BEFORE the hand-off and the badge so their positions include its spacer.
+        // 2026-10-01 (later): 50% read as "stagnant", cut to 30%. No anticipatePin: it pinned a few px EARLY, so the heading's aim was
+        // off and it jumped 7px when it handed over.
+        if(wide)hold=ScrollTrigger.create({trigger:SV,start:function(){return 'top '+(hdrEl.offsetHeight)+'px';},end:'+=30%',pin:true,invalidateOnRefresh:true});
+        handOff=ScrollTrigger.create({trigger:SV,start:'top bottom',end:function(){return 'top '+(hdrEl.offsetHeight)+'px';},
+          onUpdate:function(self){var p=self.progress;
+            if(!wide){ // phones: no travel, the gap heading simply gives way to the section
+              gsap.set([GH,GP],{opacity:Math.max(0,1-p*2.2)});if(p>.35)landCards();return;}
+            var e=ease(p),g0l=GH.offsetLeft+GHW.offsetLeft,g0t=GH.offsetTop+GHW.offsetTop;
+            rng.selectNodeContents(RH);var rt=rng.getBoundingClientRect(),s=rt.width/GH.offsetWidth; // the WORDS' width, not the full-width heading box
+            // aim at where the heading WILL be when the section has landed (Fahad 2026-09-29: chasing the moving heading made it dip):
+            // its offset inside the section + the header height. Measured from the section, not from the scroll still to come.
+            var r={left:rt.left,top:hdrEl.offsetHeight+(RH.getBoundingClientRect().top-SV.getBoundingClientRect().top)},dy=(r.top-g0t)*e;
+            gsap.set(GH,{x:(r.left-g0l)*e,y:dy,scale:1+(s-1)*e,opacity:p>=.999?0:1});
+            // the long paragraph travels up WITH the heading while it fades, instead of standing still
+            var q=Math.min(1,p/.45);gsap.set(GP,{opacity:1-q,y:dy-30*q});
+            gsap.set(RH,{opacity:p>=.999?1:0});
+            var k=Math.max(0,Math.min(1,(p-.55)/.45));gsap.set(RS,{opacity:k,y:18*(1-k)}); // the short line rises into place
+            if(p>=.999)landCards();},
+          onLeaveBack:function(){gsap.set(GH,{x:0,y:0,scale:1,opacity:1});gsap.set(GP,{opacity:1,y:0});if(wide){gsap.set(RH,{opacity:0});gsap.set(RS,{opacity:0,y:18});}},
+          onRefresh:function(self){self.update&&self.update();}});
+        if(wide){gsap.set([RH,RS],{opacity:0});}
+      }
+      // the logo was introduced on the loading screen: here it simply appears as the badge as How I can help arrives
+      tl.set(logo,{x:bX,y:bY,scale:B,autoAlpha:0},0)
+        .to(logo,{autoAlpha:1,duration:.2},.95);
+      // stays through How I can help AND Meet Puneet; leaves as the reviews come in (Fahad 2026-09-24)
+      // checked live against the reviews' real position: the Meet Puneet pin is built later, so a measured end point comes out too early
+      var revs=document.querySelector('.revs'),badgeOn=null;
+      var chk=function(){var on=revs.getBoundingClientRect().top>innerHeight*.7;if(on!==badgeOn){badgeOn=on;gsap.to(dlc,{autoAlpha:on?1:0,duration:.4,overwrite:true});}};
+      var badge=ScrollTrigger.create({trigger:help,start:'top top',end:'max',onUpdate:chk,onEnter:chk,onRefresh:function(self){if(self.isActive)chk();},
+        onLeaveBack:function(){badgeOn=null;gsap.set(dlc,{autoAlpha:1});}});
+      return function(){window.__introDark=null;badge.kill();if(handOff)handOff.kill();if(hold)hold.kill();gsap.set([dlc,logo,G,GIN,GHW,GPW,GH,GP],{clearProps:'all'});if(SV)gsap.set(SV.querySelectorAll('.svc-head h2,.svc-head .sub-line,.cards-nav,.scard'),{clearProps:'opacity,transform,filter'});};
+    }
+    if(IV==='3'){
+      // 3 · the camera pushes into the photo, towards Puneet, and the office dissolves into the blue
+      window.__introDark=function(){return +gsap.getProperty(veil,'opacity')>.55;};
+      tl.to(copyBits,{opacity:0,duration:.2},0)
+        .to(sheet,{scale:3.4,duration:1,ease:'power2.in',transformOrigin:wide?'74% 38%':'50% 22%'},0)
+        .to(veil,{opacity:1,duration:.5,ease:'power1.in'},.5)
+        .to({},{duration:.25});
+      return function(){window.__introDark=null;gsap.set(sheet,{clearProps:'transform'});};
+    }
+    if(IV==='4'){
+      // 4 · the hero stays and dims while How I can help rises over it like a sheet of paper
+      help.classList.add('before');
+      window.__introDark=function(){return help.getBoundingClientRect().top<innerHeight*.55;};
+      ScrollTrigger.create({trigger:help,start:'top top',onEnter:function(){help.classList.remove('before');},onLeaveBack:function(){help.classList.add('before');}});
+      tl.to(copyBits,{opacity:.0,duration:.6},0)
+        .to(sheet,{scale:.92,duration:1,ease:'none'},0)
+        .to(veil,{opacity:.55,duration:1,ease:'none'},0)
+        .set(['.sheet',veil],{autoAlpha:0},.999); // once How I can help covers the screen, nothing may show through it
+      return function(){window.__introDark=null;help.classList.remove('before');gsap.set(['.sheet',veil],{clearProps:'opacity,visibility'});};
+    }
+  });
+
+  /* 3b · the drawings act out each situation (Fahad 2026-09-24: "more real animations").
+     Each returns a paused timeline and a reset; the fly-through decides when each one plays. */
+  function makeAct(svg){
+    var q=function(x){return svg.querySelector(x);},qa=function(x){return svg.querySelectorAll(x);};
+    var t=gsap.timeline({paused:true}),reset=function(){},draw={strokeDasharray:1,strokeDashoffset:1},drawn={strokeDashoffset:0};
+    var idle=function(els,at){t.to(els,{opacity:.13,duration:1.8,repeat:-1,yoyo:true,ease:'sine.inOut'},at);};
+    var kind=svg.dataset.act;
+    if(!kind)return {tl:t,reset:function(){}}; // a photo: nothing to act out
+    if(/3d$/.test(kind)){ // a 3D stage: the scene module (below) owns it; play/reset are handed across by name
+      var base=kind.slice(0,-2),h=function(){return window.__h3d&&window.__h3d[base];};
+      return {tl:t,reset:function(){if(window.__h3dWant===base)window.__h3dWant=null;if(h())h().reset();},play:function(){if(h())h().play();else window.__h3dWant=base;}};
+    }
+    if(kind==='shop'){ // a CLOSED sign swings in, flips to OPEN, the shop's name writes itself, lights come on
+      var sign=q('.sign'),txt=q('.sign text'),win=qa('.glow:not(.door)'),door=q('.glow.door');
+      reset=function(){txt.textContent='CLOSED';};reset(); // reads OPEN without motion; the act starts CLOSED
+      t.fromTo(sign.querySelectorAll('path'),draw,Object.assign({},{duration:.45,stagger:.1},drawn),0)
+       .fromTo(txt,{opacity:0},{opacity:1,duration:.3},.3)
+       .fromTo(sign,{rotation:-30,scaleX:1,svgOrigin:'200 250'},{rotation:0,svgOrigin:'200 250',duration:1.2,ease:'elastic.out(1,.35)'},0)
+       .to(sign,{scaleX:0,svgOrigin:'200 250',duration:.17,ease:'power2.in'},1.35)
+       .call(function(){txt.textContent='OPEN';},null,1.52)
+       .to(sign,{scaleX:1,svgOrigin:'200 250',duration:.24,ease:'power2.out'},1.52)
+       .fromTo(q('.reveal'),{attr:{width:0}},{attr:{width:200},duration:1.1,ease:'power2.inOut'},1.8)
+       .fromTo(win,{opacity:0},{opacity:.26,duration:.5,stagger:.25},2.0)
+       .fromTo(door,{opacity:0},{opacity:.26,duration:.5},2.45);
+      idle([win,door],3.3);
+    }
+    if(kind==='invest'){ // lights come on house by house, the row makes room, a fourth house is planned, then owned
+      var L=qa('.row .lights'),nxp=qa('.next path'),ng=q('.next .glow');
+      t.fromTo(L[0].children,{opacity:0},{opacity:.26,duration:.4},.1)
+       .fromTo(L[1].children,{opacity:0},{opacity:.26,duration:.4,stagger:.08},.5)
+       .fromTo(L[2].children,{opacity:0},{opacity:.26,duration:.4},1.05)
+       .fromTo(q('.row'),{x:0},{x:-34,duration:1.1,ease:'power3.inOut'},1.5)
+       .fromTo(nxp,Object.assign({},{opacity:.4},draw),Object.assign({},{duration:1,stagger:.15,ease:'power1.inOut'},drawn),2.0)
+       .to(nxp,{opacity:1,duration:.4},3.3)
+       .fromTo(ng,{opacity:0},{opacity:.26,duration:.4},3.4);
+      idle(qa('.glow'),4.0);
+    }
+    if(kind==='key'){ // the key flies to the door and turns, the door swings open, light spills out
+      var key=q('.key'),dl=[q('.glow.door'),q('.spill')],win2=qa('.glow:not(.door):not(.spill)');
+      gsap.set(key,{svgOrigin:'372 270'});
+      t.fromTo(key,{x:0,y:0,scale:1,opacity:1},{keyframes:{x:[0,-95,-210],y:[0,-85,42],scale:[1,.75,.5],easeEach:'sine.inOut'},duration:1.5,ease:'power1.inOut'},.1)
+       .to(key,{scaleY:.06,duration:.16,yoyo:true,repeat:1,ease:'power1.inOut'},1.75)
+       .to(key,{opacity:0,duration:.3},2.2)
+       .fromTo(q('.leaf'),{scaleX:1,svgOrigin:'133 310'},{scaleX:.16,svgOrigin:'133 310',duration:.9,ease:'power2.inOut'},2.25)
+       .fromTo(dl,{opacity:0},{opacity:function(i){return i?.16:.3;},duration:.7},2.4)
+       .fromTo(win2,{opacity:0},{opacity:.26,duration:.5,stagger:.22},2.8);
+      idle([dl,win2],3.8);
+    }
+    if(kind==='move'){ // a moving box rides the arc from the old home to the new one, the lights change over
+      var box=q('.box'),og=qa('.old .glow'),ng2=qa('.new .glow'),arc=q('.arc').getAttribute('d');
+      t.fromTo(og,{opacity:0},{opacity:.26,duration:.4},0)
+       .set(box,{x:96,y:200,opacity:1},0)
+       .fromTo(box.querySelectorAll('path'),draw,Object.assign({},{duration:.4,stagger:.12},drawn),.3)
+       .to(box,{motionPath:{path:arc},duration:1.9,ease:'power1.inOut'},.9)
+       .to(og,{opacity:0,duration:.6},2.3)
+       .to(box,{y:'+=26',opacity:0,duration:.5,ease:'power2.in'},2.85)
+       .fromTo(ng2,{opacity:0},{opacity:.26,duration:.5,stagger:.2},2.9);
+      idle(ng2,4.0);
+    }
+    return {tl:t,reset:reset};
+  }
+
+  /* 3 · situations: immersive fly-through.
+     Look (Fahad 2026-09-23): blur-in / blur-out, the map turning and zooming, dark edges.
+     Smoothness: blur only on the text block (never the giant numbers), every animated layer
+     promoted with will-change, no snap (it fought Lenis), and the motion never stops dead:
+     each situation keeps drifting towards the camera while it is on screen. */
+  (function(){
+    if(root.dataset.svc)return; // a neutral version is on: the fly-through does not run
+    var sec=document.querySelector('.help'), slides=gsap.utils.toArray('.help .slide'), vig=sec.querySelector('.vig');
+    // 3D scenes (Fahad 2026-09-24, all four situations): a stage takes each drawing's place; the drawings
+    // stay as the fallback (no WebGL, reduced motion, or ?three=0)
+    var gl=(function(){try{var c=document.createElement('canvas');return !!(c.getContext('webgl2')||c.getContext('webgl'));}catch(e){return false;}})();
+    // photos instead of the 3D scenes and drawings (Fahad 2026-09-25); ?pics=0 brings the scenes back
+    var PICS=!/[?&]pics=0/.test(location.search),PIC=['01-self-employed-trucker.webp','02-investors-skyline.webp','03-first-time-buyers-steps.webp','04-moving-homes-packed-car.webp'];
+    if(PICS)sec.querySelectorAll('svg[data-act]').forEach(function(sv,i){var f=document.createElement('figure');f.className='big pic';
+      f.innerHTML='<img src="img/help/'+PIC[i]+'" alt="" decoding="async">';sv.parentNode.replaceChild(f,sv);});
+    var m3d=!PICS&&gl&&!/[?&]three=0/.test(location.search);
+    if(m3d){window.__m3dBoxes={};sec.querySelectorAll('svg[data-act]').forEach(function(sv){
+      var b=document.createElement('div');b.className='big big3d';b.dataset.act=sv.dataset.act+'3d';b.setAttribute('aria-hidden','true');
+      sv.parentNode.insertBefore(b,sv);sv.classList.remove('big');sv.style.display='none';window.__m3dBoxes[sv.dataset.act]=b;});}
+    // layout demos (Fahad 2026-09-25), ?help=rail|stage|cards|ask|now; bar shows only while the section is on screen
+    var HL=(/[?&]help=(hybrid|cards|now)/.exec(location.search)||[])[1]||'now'; // Fahad 2026-09-25: the original sticky section, for now
+    sec.classList.add('hl-'+HL);if(HL==='hybrid')sec.classList.add('hl-cards'); // the hybrid wears the card
+    var hsw=document.createElement('nav');hsw.className='help-switch';hsw.setAttribute('aria-label','How I can help: layout options');
+    hsw.innerHTML='<span class="micro">Layout</span>'+[['hybrid','Hybrid'],['cards','Cards'],['now','As it is']].map(function(x){return '<a href="?help='+x[0]+'#help"'+(x[0]===HL?' aria-current="true"':'')+'>'+x[1]+'</a>';}).join('');
+    sec.classList.add('js');
+    var small=matchMedia('(max-width: 760px)').matches, blur=function(px){return small?'blur(0px)':'blur('+px+'px)';};
+    var copy=function(sl){return sl.querySelector('.copy');}, big=function(sl){return sl.querySelector('.big');};
+    // no heading beat (Fahad: jump straight into the numbered list): 01 is already on screen as
+    // the section arrives; 02-04 then fly in from the depth one at a time
+    gsap.set(slides,{autoAlpha:0});
+    var actAt=[],exitAt=[],acts=slides.map(function(sl){return makeAct(big(sl));}),cur=-1;
+    // each scene plays in real time (not tied to the scroll, so it never freezes mid-action when
+    // you stop): it starts when its drawing is nearly done, resets when you move to another
+    // situation, and everything pauses while the section is off screen
+    function pick(t,off){
+      var n=-1;if(!off)for(var i=0;i<slides.length;i++){if(t>=actAt[i]&&t<exitAt[i])n=i;}
+      if(n===cur)return;cur=n;
+      acts.forEach(function(a,j){if(j===n){a.reset();a.tl.restart();if(a.play)a.play();}else{a.tl.pause(0);a.reset();}});
+    }
+    var tl=gsap.timeline({defaults:{ease:'none'}});
+    var q=function(sl,sel){return sl.querySelector(sel);};
+    var pz=function(sl){return q(sl,'.pic img')||big(sl);}, isPic=function(sl){return !!q(sl,'.pic');};
+    // each layout: how a situation arrives, holds and leaves (the sticky scroll and the scenes are shared)
+    var LAY={
+      now:{ov:.4,
+        enter:function(sl){tl.fromTo(copy(sl),{scale:.45,autoAlpha:0,filter:blur(16)},{scale:1,autoAlpha:1,filter:blur(0),duration:.9,ease:'power3.out'},'<')
+          .fromTo(big(sl),{scale:.3,autoAlpha:0},{scale:1,autoAlpha:1,duration:1.05,ease:'power3.out'},'<');},
+        hold:function(sl){tl.to(copy(sl),{scale:1.05,duration:.8}).to(big(sl),{scale:1.1,duration:.8},'<');},
+        exit:function(sl){tl.to(copy(sl),{scale:1.75,filter:blur(14),duration:.75,ease:'power2.in'}).to(big(sl),{scale:2.6,duration:.75,ease:'power2.in'},'<')
+          .to([copy(sl),big(sl)],{autoAlpha:0,duration:.35},'<.12').set(sl,{autoAlpha:0});}},
+      cards:{ov:.9,
+        enter:function(sl,i){if(i)tl.fromTo(sl,{yPercent:118},{yPercent:0,duration:.9,ease:'power3.out'},'<');else tl.fromTo(sl,{scale:.9,autoAlpha:0},{scale:1,autoAlpha:1,duration:.8,ease:'power3.out'},'<');
+          if(isPic(sl))tl.fromTo(pz(sl),{scale:1.25},{scale:1,duration:1,ease:'power3.out'},'<');
+          else tl.fromTo(big(sl),{scale:.85,autoAlpha:0},{scale:1,autoAlpha:1,duration:.8,ease:'power3.out'},'<.2');},
+        hold:function(sl){tl.to(pz(sl),{scale:isPic(sl)?1.06:1.04,duration:.8});},
+        // the deck: every card underneath steps back a little further as a new one arrives
+        exit:function(sl,i){slides.slice(0,i+1).forEach(function(s2,j){tl.to(s2,{scale:.93-.035*(i-j),y:-(3.2*(i-j+1))+'svh',duration:.9,ease:'power2.inOut'},j?'<':undefined);});}},
+      // HYBRID: the card arrives out of the depth and flies past the camera; blur only on the text, never the whole card
+      hybrid:{ov:.4,
+        enter:function(sl){tl.fromTo(sl,{scale:.5,autoAlpha:0},{scale:1,autoAlpha:1,duration:.9,ease:'power3.out'},'<')
+          .fromTo(copy(sl),{autoAlpha:0,filter:blur(16)},{autoAlpha:1,filter:blur(0),duration:.9,ease:'power3.out'},'<')
+          ;if(isPic(sl))tl.fromTo(pz(sl),{scale:1.3},{scale:1,duration:1.05,ease:'power3.out'},'<');
+          else tl.fromTo(big(sl),{scale:.6,autoAlpha:0},{scale:1,autoAlpha:1,duration:1.05,ease:'power3.out'},'<');},
+        hold:function(sl){tl.to(sl,{scale:1.04,duration:.8});if(isPic(sl))tl.to(pz(sl),{scale:1.06,duration:.8},'<');},
+        exit:function(sl){tl.to(sl,{scale:1.7,duration:.75,ease:'power2.in'}).to(copy(sl),{filter:blur(14),duration:.75,ease:'power2.in'},'<')
+          .to(sl,{autoAlpha:0,duration:.35},'<.2').set(sl,{autoAlpha:0});}}
+    }, Ly=LAY[HL], startAt=[];
+    slides.forEach(function(sl,i){
+      {
+        tl.set(sl,{autoAlpha:1},i?'-='+Ly.ov:0);
+        startAt[i]=tl.duration();
+        Ly.enter(sl,i);
+        tl.fromTo(big(sl).querySelectorAll('path:not(.later)'),{strokeDasharray:1,strokeDashoffset:1},{strokeDashoffset:0,duration:1.1,stagger:.05,ease:'power1.inOut'},'<.1');
+      }
+      actAt[i]=tl.duration()-.35; // the scene starts acting as its drawing finishes
+      Ly.hold(sl,i);
+      exitAt[i]=i<slides.length-1?tl.duration():Infinity;
+      if(i<slides.length-1)Ly.exit(sl,i);
+    });
+    var D=tl.duration();
+    // dark edges only while the section owns the screen, so no seam shows at its borders.
+    // (The road behind keeps scrolling while this section is pinned: you keep travelling down it.)
+    tl.to(vig,{opacity:1,duration:.5},0)
+      .to(vig,{opacity:0,duration:.5},D-.5);
+    ScrollTrigger.create({trigger:sec,start:'top top',end:'+='+(slides.length*100)+'%',pin:true,scrub:true,animation:tl,anticipatePin:1,
+      onUpdate:function(){pick(tl.time());},onLeave:function(){pick(0,true);},onEnterBack:function(){cur=-1;pick(tl.time());},
+      onToggle:function(self){hsw.classList.toggle('on',self.isActive);}});
+    window.__fly={tl:tl,actAt:actAt,exitAt:exitAt}; // for the QA driver
+    if(location.hash==='#s3'){history.scrollRestoration='manual';addEventListener('load',function(){setTimeout(function(){ScrollTrigger.refresh();var st=tl.scrollTrigger,y=st.start+(st.end-st.start)*(actAt[2]+.2)/tl.duration();if(window.__lenis)__lenis.scrollTo(y,{immediate:true});else scrollTo(0,y);},80);});}
+  })();
+
+  /* 3b · How I can help, neutral: tabs (when chosen), one-by-one reveal, and the options bar */
+  (function(){
+    var sv=document.getElementById('services'),k=root.dataset.svc;if(!k||!sv)return;
+    if(k==='tabs'){
+      var its=[].slice.call(sv.querySelectorAll('.svc-item')),bar=document.createElement('div');
+      bar.className='tabs';bar.setAttribute('role','tablist');bar.setAttribute('aria-label','Situations');
+      its.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.id='svc-tab-'+(i+1);b.setAttribute('aria-controls',it.id);
+        b.innerHTML='<span class="micro">0'+(i+1)+'</span>'+it.querySelector('h3').textContent;it.setAttribute('role','tabpanel');it.setAttribute('aria-labelledby',b.id);bar.appendChild(b);});
+      sv.querySelector('.svc-items').before(bar);
+      var btns=[].slice.call(bar.children);
+      var show=function(n,anim){btns.forEach(function(b,j){b.setAttribute('aria-selected',j===n);b.tabIndex=j===n?0:-1;});
+        its.forEach(function(it,j){it.classList.toggle('on',j===n);});
+        var tb=btns[n],r=bar.getBoundingClientRect(),q=tb.getBoundingClientRect(); // keep the chosen tab in view on narrow screens (row scrolls sideways)
+        if(q.right>r.right)bar.scrollLeft+=q.right-r.right+16;else if(q.left<r.left)bar.scrollLeft-=r.left-q.left+16;
+        if(anim)gsap.fromTo(its[n].children,{y:24,opacity:0},{y:0,opacity:1,duration:.7,stagger:.08,ease:'expo.out'});};
+      btns.forEach(function(b,i){b.addEventListener('click',function(){show(i,false);}); // no animation on switch (Fahad 2026-09-25)
+        b.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();var n=(i+d+btns.length)%btns.length;btns[n].focus();show(n,false);});});
+      show(0,false);
+    }
+    if(k==='cards'){
+      // paging, no sliding: show [first, first+per); Next jumps to the last set (4 per view: cards 3-6), Back to the start
+      var tr=sv.querySelector('.cards-track'),pv=sv.querySelector('.cn-prev'),nx=sv.querySelector('.cn-next'),cs=[].slice.call(tr.querySelectorAll('.scard')),first=0;
+      var per=function(){return parseInt(getComputedStyle(tr).getPropertyValue('--per'),10)||4;};
+      var show=function(){var p=per();first=Math.max(0,Math.min(first,cs.length-p));
+        cs.forEach(function(c,i){c.hidden=!(i>=first&&i<first+p);});
+        pv.disabled=first===0;nx.disabled=first>=cs.length-p;};
+      nx.addEventListener('click',function(){var p=per();first=Math.min(first+p,cs.length-p);show();});
+      pv.addEventListener('click',function(){first=Math.max(0,first-per());show();});
+      addEventListener('resize',show);show();
+    }
+    // List: the held heading column sits centred on the screen (Fahad 2026-09-25: "bring this lower so it's more centred"), never under the header
+    if(k==='list'){var hd=sv.querySelector('.svc-head'),hb=document.querySelector('.hdr');
+      var centre=function(){if(innerWidth<=860){hd.style.top='';return;}var min=(hb?hb.getBoundingClientRect().bottom:72)+20;hd.style.top=Math.max(min,(innerHeight-hd.offsetHeight)/2)+'px';};
+      centre();addEventListener('resize',centre);addEventListener('load',centre);}
+    var els=gsap.utils.toArray(sv.querySelectorAll(k==='tabs'?'.svc-head > *, .tabs, .svc-items':'.svc-head > *, .svc-item'));
+    if(!reduce&&k!=='tabs'&&k!=='cards'){gsap.set(els,{y:70,opacity:0,filter:'blur(8px)'}); // Tabs: no scroll reveal (Fahad 2026-09-25: remove animations)
+      ScrollTrigger.batch(els,{start:'top 88%',once:true,onEnter:function(b){gsap.to(b,{y:0,opacity:1,filter:'blur(0px)',duration:1.3,ease:'expo.out',stagger:.14,clearProps:'filter'});}});}
+    var sw=document.createElement('nav');sw.className='svc-switch';sw.setAttribute('aria-label','How I can help: layout options');
+    sw.innerHTML='<span class="micro">Mortgage services</span>'+[['cards','Cards'],['tabs','Tabs'],['list','List'],['grid','Grid'],['fly','Old (sticky)']].map(function(x){return '<a href="?svc='+x[0]+'#services"'+(x[0]===k?' aria-current="true"':'')+'>'+x[1]+'</a>';}).join('');
+    ScrollTrigger.create({trigger:sv,start:'top 70%',end:'bottom 30%',onToggle:function(self){sw.classList.toggle('on',self.isActive);}});
+  })();
+
+  /* 4 · about. House entrance (ZEF standard): 70px, blur, 1.3s, each item on its own visibility. */
+  var about=document.querySelector('section.about');
+  // reveal(): every element arrives on its own visibility; any that cross the line together are
+  // staggered, so a group never lands as one block (studio rule: one by one, with a beat)
+  var reveal=function(targets,start){
+    var els=gsap.utils.toArray(targets); if(!els.length)return;
+    gsap.set(els,{y:70,opacity:0,filter:'blur(8px)'});
+    ScrollTrigger.batch(els,{start:start||'top 86%',once:true,onEnter:function(b){gsap.to(b,{y:0,opacity:1,filter:'blur(0px)',duration:1.3,ease:'expo.out',stagger:.14,clearProps:'filter'});}});
+  };
+  {
+    // the portrait is uncovered from the bottom up as the section arrives
+    var ph=about.querySelector('.bound-ph'), words=about.querySelectorAll('h2 span');
+    gsap.fromTo(ph.querySelector('.clip'),{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',ease:'none',scrollTrigger:{trigger:about,start:'top 85%',end:'top 12%',scrub:.6}});
+    gsap.fromTo(ph.querySelector('img'),{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:about,start:'top bottom',end:'top top',scrub:true}});
+    gsap.from(ph.querySelectorAll('.pin'),{scale:0,duration:.6,stagger:.12,ease:'back.out(3)',scrollTrigger:{trigger:about,start:'top 20%'}});
+    mm.add({wide:'(min-width: 861px)',narrow:'(max-width: 860px)'},function(ctx){
+      if(ctx.conditions.narrow){reveal([words,'.ab-b .state','.ab-b .desc','.ab-b .end']);return;}
+      // wide: the section holds; the portrait glides from the centre to its place, the name slides out
+      // from behind it, then the line, the description and the buttons arrive one after another
+      var X=function(el){return gsap.getProperty(el,'x')||0;};
+      var centre=function(){var g=about.querySelector('.grid').getBoundingClientRect();return g.left+g.width/2;};
+      var phFrom=function(){var p=ph.getBoundingClientRect();return centre()-(p.left-X(ph)+p.width/2);};
+      var fade={y:50,autoAlpha:0,filter:'blur(8px)'},shown={y:0,autoAlpha:1,filter:'blur(0px)',duration:.45};
+      var tl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:about,start:'top top',end:'+=140%',pin:true,scrub:true,anticipatePin:1,invalidateOnRefresh:true}});
+      tl.fromTo(ph,{x:phFrom,scale:1.06},{x:0,scale:1,duration:1,ease:'power2.inOut'},0);
+      // each word wipes in from the portrait's edge (hidden until then: the words are wider than the photo)
+      words.forEach(function(w,i){tl.fromTo(w,{x:-90,clipPath:'inset(0% 100% 0% 0%)'},{x:0,clipPath:'inset(0% 0% 0% 0%)',duration:.8,ease:'power2.out'},.3+i*.14);});
+      tl.fromTo('.ab-b .state',fade,shown,1.0)
+        .fromTo('.ab-b .desc',fade,Object.assign({},shown,{stagger:.14}),1.18)
+        .fromTo('.ab-b .end',fade,shown,1.36)
+        .to({},{duration:.35});
+    });
+    if(location.hash==='#about'){history.scrollRestoration='manual';addEventListener('load',function(){setTimeout(function(){ScrollTrigger.refresh();var y=about.getBoundingClientRect().top+scrollY;if(window.__lenis)__lenis.scrollTo(y,{immediate:true});else scrollTo(0,y);},80);});}
+  }
+
+  /* 5 · reviews: pinned horizontal track on wide screens, each quote arrives on its own */
+  mm.add('(min-width: 761px)',function(){
+    var track=document.querySelector('.revs .track');
+    var dist=function(){return track.scrollWidth-innerWidth;};
+    var tween=gsap.to(track,{x:function(){return -dist();},ease:'none',scrollTrigger:{trigger:'.revs',start:'top top',end:function(){return '+='+dist();},scrub:1,pin:true,invalidateOnRefresh:true,anticipatePin:1}});
+    gsap.utils.toArray('.revs .q,.revs .end').forEach(function(q){
+      gsap.from(q,{y:70,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:q,containerAnimation:tween,start:'left 88%'}});
+    });
+  });
+  mm.add('(max-width: 760px)',function(){
+    gsap.utils.toArray('.revs .q').forEach(function(q){gsap.from(q,{y:60,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:q,start:'top 88%'}});});
+  });
+
+  /* 6 · A B C: letters rise one by one, Puneet slides in from the edge */
+  gsap.utils.toArray('.door').forEach(function(d,i){
+    gsap.from(d.querySelector('.L'),{yPercent:60,opacity:0,duration:1.4,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'.doors',start:'top 85%'}});
+    gsap.from(d.querySelectorAll('.d,.x'),{y:24,opacity:0,duration:1.1,ease:'expo.out',delay:.25+i*.12,scrollTrigger:{trigger:'.doors',start:'top 85%'}});
+  });
+  gsap.from('.abc .head > *',{y:60,opacity:0,duration:1.3,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'.abc',start:'top 75%'}});
+
+  gsap.from('.abc .peeker',{xPercent:40,ease:'none',scrollTrigger:{trigger:'.abc',start:'top bottom',end:'center center',scrub:true}});
+
+  /* 7 · video slots one by one */
+  /* video tiles: house reveal (70px / blur / 1.3s), each on its own visibility, a 140ms beat between; clearProps so the hover scale works after */
+  gsap.utils.toArray('.slot,.reel').forEach(function(s,i){
+    gsap.from(s,{y:70,opacity:0,filter:'blur(8px)',duration:1.3,ease:'expo.out',delay:i*.14,clearProps:'transform,filter',scrollTrigger:{trigger:s,start:'top 88%'}});
+  });
+
+  /* 8 · footer line rises */
+  gsap.from('.foot .big',{yPercent:40,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.foot',start:'top 70%'}});
+
+  /* page colour follows whichever section sits under the middle of the screen,
+     like the reference. Measured on every scroll (pin spacers included), so a
+     jump past a section can never leave the wrong colour behind. */
+  var themed=[].slice.call(document.querySelectorAll('[data-theme]')).map(function(s){
+    var box=s.parentElement&&s.parentElement.classList.contains('pin-spacer')?s.parentElement:s;
+    return {box:box,dark:s.dataset.theme==='dark',intro:s.dataset.theme==='intro'};
+  });
+  // BACKGROUND TEST (Fahad 2026-09-25): the page colour (--wall) from his palette, switched live; ?bg=0-4 keeps the pick in the address
+  (function(){var opts=[['#f1f1ef','Current'],['#FFEFD5','FFEFD5'],['#FFF8E7','FFF8E7'],['#FAD6A5','FAD6A5']]; // FFFFF0 removed 2026-10-10 (Fahad)
+    var m=/[?&]bg=([0-3])/.exec(location.search),cur=m?+m[1]:0;
+    var bar=document.createElement('nav');bar.className='bg-switch';bar.setAttribute('aria-label','Background colour test');
+    bar.innerHTML='<span class="micro">Background</span>'+opts.map(function(o,i){return '<button type="button" data-i="'+i+'"><i style="background:'+o[0]+'"></i><b>'+o[1]+'</b></button>';}).join('');
+    var set=function(i){cur=i;var blue=!!opts[i][2];
+      root.classList.toggle('all-blue',blue);root.classList.toggle('all-white',!blue);
+      if(blue){root.style.setProperty('--navy',opts[i][0]);root.style.removeProperty('--wall');}else{root.style.removeProperty('--navy');root.style.setProperty('--wall',opts[i][0]);}
+      var dl=document.querySelector('.dlc-in img');if(dl)dl.src=blue?'img/keystone-logo-reversed.svg':'img/keystone-logo.svg'; // white lettering on blue, original on light
+      if(window.__theme)window.__theme();
+      [].forEach.call(bar.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.dataset.i===i);});
+      var u=new URL(location.href);u.searchParams.set('bg',i);history.replaceState(null,'',u);};
+    bar.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(+b.dataset.i);});
+    document.body.appendChild(bar);window.__bgInit=function(){set(cur);};})();
+  // WHITE THROUGHOUT (Fahad 2026-09-25: "make the whole website white"). ?theme=mixed brings back the navy/white sections
+  var WHITE=!/[?&]theme=mixed/.test(location.search);
+  root.classList.toggle('all-white',WHITE);
+  if(WHITE){var dl=document.querySelector('.dlc-in img');if(dl)dl.src='img/keystone-logo.svg';} // original colours: the white-lettered version vanishes on white
+  function theme(){
+    if(!themed)return;
+    var line=innerHeight*.55;
+    for(var i=0;i<themed.length;i++){var r=themed[i].box.getBoundingClientRect();if(r.top<=line&&r.bottom>line){root.classList.toggle('is-dark',root.classList.contains('all-blue')||(!root.classList.contains('all-white')&&(themed[i].intro?(window.__introDark?window.__introDark():((introST&&introST.progress>=1)||document.querySelector('.sheet').getBoundingClientRect().top>60)):themed[i].dark)));return;}}
+  }
+  window.__theme=theme;
+  if(window.__bgInit)window.__bgInit(); // the Background bar's pick wins over the white default
+  ScrollTrigger.create({start:0,end:'max',onUpdate:theme,onRefresh:theme});
+  theme();
+
+  ScrollTrigger.addEventListener('refresh',drawRoad);
+  addEventListener('load',function(){ScrollTrigger.refresh();});
+})();
+</script>
+<script type="module">if(window.__m3dBoxes)import('./js/scenes.js'); // the 3D house scenes load only when they are on (photos replaced them 2026-09-25)</script>
+<script type="module">if(window.__loaderOn)import('./js/keystone.js');</script>
+<script src="js/nav.js"></script>
+<script src="js/reels.js"></script>
+<script>/* reviews: "2 weeks ago" the way Google writes it, from each review's real posting date */
+(function(){function ago(iso){var d=(Date.now()-new Date(iso+'T12:00:00').getTime())/864e5;
+if(d<7){var x=Math.max(1,Math.floor(d));return x===1?'a day ago':x+' days ago';}
+if(d<30){var w=Math.floor(d/7);return w===1?'a week ago':w+' weeks ago';}
+if(d<365){var m=Math.floor(d/30.4);return m<=1?'a month ago':m+' months ago';}
+var y=Math.floor(d/365);return y===1?'a year ago':y+' years ago';}
+[].forEach.call(document.querySelectorAll('time[data-ago]'),function(t){t.textContent=ago(t.getAttribute('datetime'));});})();</script>
+<script src="/puneet-mann-preview/look.js"></script>
+<script src="/puneet-mann-preview/review.js" defer></script>
+</body>
+</html>

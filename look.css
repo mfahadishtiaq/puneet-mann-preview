@@ -1,0 +1,18 @@
+/* THE LOOK PANEL — PREVIEW ONLY (2026-10-05). See look.js. Bottom-left: the Review tab owns the right edge. */
+.lkroot{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:240;
+  background:#16171b;color:#fff;border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.25);
+  font:600 13px/1.2 "Mona Sans","Helvetica Neue",Arial,sans-serif;max-width:calc(100vw - 32px)}
+.lktoggle{all:unset;cursor:pointer;display:block;padding:11px 14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px}
+.lktoggle::after{content:" ▾";opacity:.7}
+.lkroot.lk-closed .lktoggle::after{content:" ▸"}
+.lkroot.lk-closed .lkbody{display:none}
+.lkbody{padding:0 10px 10px}
+.lkrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:6px 4px}
+.lkrow + .lkrow{border-top:1px solid rgba(255,255,255,.12)}
+.lklabel{width:104px;color:rgba(255,255,255,.7);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase}
+.lkrow button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;min-height:34px;padding:0 10px;border-radius:6px;color:#fff}
+.lkrow button i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.5)}
+.lkrow button[aria-pressed="true"]{background:#fff;color:#16171b}
+.lkrow button[aria-pressed="true"] i{border-color:#16171b}
+.lkrow button:focus-visible,.lktoggle:focus-visible{outline:2px solid #d3b65a;outline-offset:2px}
+@media (max-width:520px){.lklabel{width:100%}}
