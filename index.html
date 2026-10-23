@@ -689,12 +689,12 @@ html.nav-blue .card-go{top:clamp(10px,6cqi,16px);bottom:auto}
 /* BLUE-NAV crops (2026-10-07, Fahad: "These images are not properly sitting inside the frame"): a full-height portrait card shows
    only the middle ~44% of these 3:2 photos, which cut the trucker's side, the CN Tower and the first-time buyer's face. Each card
    aims its crop at its people. !important because the cards carry an inline object-position that the white version uses. */
-html.nav-blue .scard[href="/puneet-mann-preview/self-employed"] img{object-position:79% 50%!important}
-html.nav-blue .scard[href="/puneet-mann-preview/investors"] img{object-position:29% 50%!important}
-html.nav-blue .scard[href="/puneet-mann-preview/first-time-buyers"] img{object-position:76% 50%!important}
-html.nav-blue .scard[href="/puneet-mann-preview/moving-homes"] img{object-position:75% 50%!important}
-html.nav-blue .scard[href="/puneet-mann-preview/refinancing"] img{object-position:86% 50%!important}
-html.nav-blue .scard[href="/puneet-mann-preview/new-to-canada"] img{object-position:77% 50%!important}
+html.nav-blue .scard[href="/self-employed"] img{object-position:79% 50%!important}
+html.nav-blue .scard[href="/investors"] img{object-position:29% 50%!important}
+html.nav-blue .scard[href="/first-time-buyers"] img{object-position:76% 50%!important}
+html.nav-blue .scard[href="/moving-homes"] img{object-position:75% 50%!important}
+html.nav-blue .scard[href="/refinancing"] img{object-position:86% 50%!important}
+html.nav-blue .scard[href="/new-to-canada"] img{object-position:77% 50%!important}
 html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
 /* PHONES · the only two phone rules added to the original layout (Fahad 2026-10-13, after two days of phone redesigns he sent back:
    "just revert to the original with these changes"). Everything else on a phone is the original design. Phones only (760px and under).
@@ -920,8 +920,6 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 <script>document.documentElement.classList.add('nav-blue');/* BLUE NAV DECIDED 2026-10-10 (was a ?nav=blue test switch) */</script>
-<meta name="robots" content="noindex,nofollow">
-<link rel="stylesheet" href="/puneet-mann-preview/review.css?v=0121be5b">
 </head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><canvas></canvas><img class="ld-flat" src="img/keystone-logo.svg" alt=""><button class="skip" type="button" tabindex="-1">Skip</button></div>
@@ -963,30 +961,30 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
             <div class="tn-col">
               <h3>Buying a home</h3>
               <ul>
-                <li><a href="/puneet-mann-preview/first-time-buyers"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span><span><span class="tn-lb">First-time home buyers</span><span class="tn-ds">Make a plan for your first home</span></span></a></li>
-                <li><a href="/puneet-mann-preview/moving-homes"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span><span><span class="tn-lb">Moving homes</span><span class="tn-ds">Plan your sale and next purchase</span></span></a></li>
-                <li><a href="/puneet-mann-preview/new-to-canada"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span><span class="tn-lb">New to Canada</span><span class="tn-ds">Mortgage options as you settle in</span></span></a></li>
+                <li><a href="/first-time-buyers"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span><span><span class="tn-lb">First-time home buyers</span><span class="tn-ds">Make a plan for your first home</span></span></a></li>
+                <li><a href="/moving-homes"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span><span><span class="tn-lb">Moving homes</span><span class="tn-ds">Plan your sale and next purchase</span></span></a></li>
+                <li><a href="/new-to-canada"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span><span class="tn-lb">New to Canada</span><span class="tn-ds">Mortgage options as you settle in</span></span></a></li>
               </ul>
             </div>
             <div class="tn-col">
               <h3>Your income and property</h3>
               <ul>
-                <li><a href="/puneet-mann-preview/self-employed"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span><span class="tn-lb">Self-employed</span><span class="tn-ds">Mortgage options for business owners</span></span></a></li>
-                <li><a href="/puneet-mann-preview/investors"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span><span><span class="tn-lb">Investors</span><span class="tn-ds">Financing for the next property</span></span></a></li>
-                <li><a href="/puneet-mann-preview/refinancing"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span><span class="tn-lb">Refinancing</span><span class="tn-ds">Explore your home equity options</span></span></a></li>
+                <li><a href="/self-employed"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span><span class="tn-lb">Self-employed</span><span class="tn-ds">Mortgage options for business owners</span></span></a></li>
+                <li><a href="/investors"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span><span><span class="tn-lb">Investors</span><span class="tn-ds">Financing for the next property</span></span></a></li>
+                <li><a href="/refinancing"><span class="tn-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span><span><span class="tn-lb">Refinancing</span><span class="tn-ds">Explore your home equity options</span></span></a></li>
               </ul>
             </div>
           </div></div>
         </div>
       </li>
-      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/abc-lending">A, B and C lending</a></li>
-      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/calculator">Calculator</a></li>
-      <li class="tn-item"><a class="tn-link" href="/puneet-mann-preview/about">About</a></li>
+      <li class="tn-item"><a class="tn-link" href="/abc-lending">A, B and C lending</a></li>
+      <li class="tn-item"><a class="tn-link" href="/calculator">Calculator</a></li>
+      <li class="tn-item"><a class="tn-link" href="/about">About</a></li>
       <li class="tn-pill" aria-hidden="true"></li>
     </ul>
   </nav>
   <div class="right">
-    <a class="pill" href="/puneet-mann-preview/start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg>Get in touch</a>
+    <a class="pill" href="/start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg>Get in touch</a>
     <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i></button>
   </div>
 </header>
@@ -1007,10 +1005,10 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
   <button class="close" type="button" aria-label="Close menu">×</button>
   <nav>
     <a href="#services" class="caps"><span class="mt">Mortgage <span class="acc">services</span></span></a>
-    <a href="/puneet-mann-preview/abc-lending" class="caps"><span class="mt"><span class="acc">A, B</span> and <span class="acc">C</span> lending</span></a>
-    <a href="/puneet-mann-preview/calculator" class="caps"><span class="mt">Calcu<span class="acc">lator</span></span></a>
-    <a href="/puneet-mann-preview/about" class="caps"><span class="mt">About <span class="acc">us</span></span></a>
-    <a href="/puneet-mann-preview/start" class="caps"><span class="mt">Start a <span class="acc">conversation</span></span></a>
+    <a href="/abc-lending" class="caps"><span class="mt"><span class="acc">A, B</span> and <span class="acc">C</span> lending</span></a>
+    <a href="/calculator" class="caps"><span class="mt">Calcu<span class="acc">lator</span></span></a>
+    <a href="/about" class="caps"><span class="mt">About <span class="acc">us</span></span></a>
+    <a href="/start" class="caps"><span class="mt">Start a <span class="acc">conversation</span></span></a>
   </nav>
   <p class="foot">Puneet Mann, Mortgage Agent Level 2 · Dominion Lending Centres Keystone Financial Experts · Brokerage Licence #13654</p>
 </div>
@@ -1025,7 +1023,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
         <h1 class="caps">Puneet <span class="acc">Mann</span></h1>
         <div class="bot">
           <p>Mortgages for business owners, investors, first-time buyers and families moving home, across Brampton and the GTA.</p>
-          <div class="acts"><a class="btn solid" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="btn solid" href="/start">Get in touch</a></div>
           <span class="langs micro">English · ਪੰਜਾਬੀ · हिन्दी · اردو</span>
         </div>
       </div>
@@ -1050,7 +1048,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
             <span class="of micro">Mortgage services · 01 / 04</span>
             <h3 class="caps">Self-<span class="acc">employed</span></h3>
             <p>Lenders read self-employed income from your tax returns, not pay stubs. Puneet reads them the way a lender will first, then matches you with a bank, or with a lender that looks at the business itself.</p>
-            <div class="acts"><a class="textlink" href="self-employed.html">Self-employed mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+            <div class="acts"><a class="textlink" href="/self-employed">Self-employed mortgages →</a><a class="call" href="/start">Get in touch</a></div>
           </div>
         </article>
         <article class="slide">
@@ -1059,7 +1057,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
             <span class="of micro">Mortgage services · 02 / 04</span>
             <h3 class="caps">Investors</h3>
             <p>Lenders count part of your rental income and look at every property you already own. Puneet lays out your whole portfolio and finds the lender whose rules suit it, so the next purchase stays possible.</p>
-            <div class="acts"><a class="textlink" href="#">Investment property mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+            <div class="acts"><a class="textlink" href="#">Investment property mortgages →</a><a class="call" href="/start">Get in touch</a></div>
           </div>
         </article>
         <article class="slide">
@@ -1068,7 +1066,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
             <span class="of micro">Mortgage services · 03 / 04</span>
             <h3 class="caps">First-time <span class="acc">home buyers</span></h3>
             <p>Buying your first home in Canada, whether you grew up here or just arrived. Puneet shows you what you can afford under the stress test, how to use the FHSA and the RRSP Home Buyers' Plan, and which newcomer programs fit your status.</p>
-            <div class="acts"><a class="textlink" href="#">First-time buyers →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+            <div class="acts"><a class="textlink" href="#">First-time buyers →</a><a class="call" href="/start">Get in touch</a></div>
           </div>
         </article>
         <article class="slide">
@@ -1077,7 +1075,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
             <span class="of micro">Mortgage services · 04 / 04</span>
             <h3 class="caps">Moving <span class="acc">homes</span></h3>
             <p>The sale and the purchase rarely close on the same day. Puneet lines up the new mortgage with your sale date and arranges bridge financing when the money needs to arrive early.</p>
-            <div class="acts"><a class="textlink" href="#">Moving homes →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+            <div class="acts"><a class="textlink" href="#">Moving homes →</a><a class="call" href="/start">Get in touch</a></div>
           </div>
         </article>
     </div>
@@ -1098,12 +1096,12 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
          plain HTML/CSS/JS (this page is not React). Photos: the four already provided for the tabs; 05 + 06 "Photo to come" until Fahad sends them. -->
     <div class="cards" role="region" aria-roledescription="carousel" aria-label="Mortgage services">
       <div class="cards-track">
-        <a class="scard" href="/puneet-mann-preview/self-employed"><img src="img/help/01-self-employed-trucker.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="card-top"><span class="card-cat">01 · Self-employed</span><span class="card-title">Mortgage options for business owners.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a class="scard" href="/puneet-mann-preview/investors"><img src="img/help/02-investors-skyline.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">02 · Investors</span><span class="card-title">Financing for the next property.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a class="scard" href="/puneet-mann-preview/first-time-buyers"><img src="img/help/03-first-time-buyers-steps.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">03 · First-time home buyers</span><span class="card-title">Make a plan for your first home.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a class="scard" href="/puneet-mann-preview/moving-homes"><img src="img/help/04-moving-homes-packed-car.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">04 · Moving homes</span><span class="card-title">Plan your sale and next purchase.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a class="scard" href="/puneet-mann-preview/refinancing"><img src="img/help/05-refinancing-kitchen.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">05 · Refinancing</span><span class="card-title">Explore your home equity options.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <a class="scard" href="/puneet-mann-preview/new-to-canada"><img src="img/help/06-new-to-canada-arrival.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">06 · New to Canada</span><span class="card-title">Mortgage options as you settle in.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/self-employed"><img src="img/help/01-self-employed-trucker.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="card-top"><span class="card-cat">01 · Self-employed</span><span class="card-title">Mortgage options for business owners.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/investors"><img src="img/help/02-investors-skyline.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">02 · Investors</span><span class="card-title">Financing for the next property.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/first-time-buyers"><img src="img/help/03-first-time-buyers-steps.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">03 · First-time home buyers</span><span class="card-title">Make a plan for your first home.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/moving-homes"><img src="img/help/04-moving-homes-packed-car.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">04 · Moving homes</span><span class="card-title">Plan your sale and next purchase.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/refinancing"><img src="img/help/05-refinancing-kitchen.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">05 · Refinancing</span><span class="card-title">Explore your home equity options.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+        <a class="scard" href="/new-to-canada"><img src="img/help/06-new-to-canada-arrival.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="card-top"><span class="card-cat">06 · New to Canada</span><span class="card-title">Mortgage options as you settle in.</span></span><span class="card-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
       </div>
       <!-- PHONES (Fahad 2026-10-15: "use the showcase from nda for mortgage services"): NDA's showcase ring, one card in the centre,
            arrows on its edges, dots under it. Hidden off phones; behaviour in the script ("SHOWCASE RING") -->
@@ -1118,7 +1116,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">01</span>
           <h3>Self-employed</h3>
           <p>Lenders read self-employed income from your tax returns, not pay stubs. Puneet reads them the way a lender will first, then matches you with a bank, or with a lender that looks at the business itself.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/self-employed">Self-employed mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/self-employed">Self-employed mortgages →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
       <article class="svc-item" id="svc-2">
@@ -1127,7 +1125,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">02</span>
           <h3>Investors</h3>
           <p>Lenders count part of your rental income and look at every property you already own. Puneet lays out your whole portfolio and finds the lender whose rules suit it, so the next purchase stays possible.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/investors">Investment property mortgages →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/investors">Investment property mortgages →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
       <article class="svc-item" id="svc-3">
@@ -1136,7 +1134,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">03</span>
           <h3>First-time home buyers</h3>
           <p>Buying your first home in Canada. Puneet shows you what you can afford under the stress test, and how to put the FHSA and the RRSP Home Buyers' Plan toward your down payment.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/first-time-buyers">First-time buyers →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/first-time-buyers">First-time buyers →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
       <article class="svc-item" id="svc-4">
@@ -1145,7 +1143,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">04</span>
           <h3>Moving homes</h3>
           <p>The sale and the purchase rarely close on the same day. Puneet lines up the new mortgage with your sale date and arranges bridge financing when the money needs to arrive early.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/moving-homes">Moving homes →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/moving-homes">Moving homes →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
       <!-- 05 + 06 added 2026-09-29 (Fahad picked Refinancing + New to Canada). Photos owed: 3000x2000 landscape, no strangers' faces -->
@@ -1155,7 +1153,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">05</span>
           <h3>Refinancing</h3>
           <p>Your home has built up value. Puneet works out how much of it you can borrow, to renovate, to invest or to bring other debts into one payment, and weighs that against the cost of leaving your current term early.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/refinancing">Refinancing →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/refinancing">Refinancing →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
       <article class="svc-item" id="svc-6">
@@ -1164,7 +1162,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
           <span class="n micro">06</span>
           <h3>New to Canada</h3>
           <p>Several lenders have programs for permanent residents and work permit holders with a short Canadian credit history. Puneet shows you which ones fit your status and which documents each one accepts.</p>
-          <div class="acts"><a class="textlink" href="/puneet-mann-preview/new-to-canada">New to Canada →</a><a class="call" href="/puneet-mann-preview/start">Get in touch</a></div>
+          <div class="acts"><a class="textlink" href="/new-to-canada">New to Canada →</a><a class="call" href="/start">Get in touch</a></div>
         </div>
       </article>
     </div>
@@ -1186,7 +1184,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
         <p class="desc">You can speak with Puneet directly about your plans, how you earn and the questions on your mind. Together, you can talk through the options before deciding what comes next.</p>
         <div class="end">
           <p class="lic">Mortgage Agent Level 2 · FSRA licence M17000192 · Brokerage licence 13654 · <a href="https://mbsweblist.fsco.gov.on.ca/agents.aspx" target="_blank" rel="noopener">Check it on FSRA</a>.</p>
-          <div class="acts"><a class="btn solid" href="/puneet-mann-preview/start">Get in touch</a><a class="textlink" href="/puneet-mann-preview/about">Meet the team →</a></div>
+          <div class="acts"><a class="btn solid" href="/start">Get in touch</a><a class="textlink" href="/about">Meet the team →</a></div>
         </div>
       </div>
     </div>
@@ -1224,11 +1222,11 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
       <p>Mortgage lenders assess income, credit and property differently. Puneet’s Level 2 licence lets him explore A, B and C options with you.</p>
     </div>
     <div class="doors">
-      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">A</span><span class="d">Banks and credit unions</span><span class="x">Standard criteria and typically lower costs.</span></a>
-      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">B</span><span class="d">Alternative lenders</span><span class="x">Different ways to consider income and credit.</span></a>
-      <a class="door" href="/puneet-mann-preview/abc-lending"><span class="L">C</span><span class="d">Private lenders</span><span class="x">Often short-term, with higher costs and an exit plan.</span></a>
+      <a class="door" href="/abc-lending"><span class="L">A</span><span class="d">Banks and credit unions</span><span class="x">Standard criteria and typically lower costs.</span></a>
+      <a class="door" href="/abc-lending"><span class="L">B</span><span class="d">Alternative lenders</span><span class="x">Different ways to consider income and credit.</span></a>
+      <a class="door" href="/abc-lending"><span class="L">C</span><span class="d">Private lenders</span><span class="x">Often short-term, with higher costs and an exit plan.</span></a>
     </div>
-    <p class="more"><a class="textlink" href="/puneet-mann-preview/abc-lending">How A, B and C lending works →</a></p>
+    <p class="more"><a class="textlink" href="/abc-lending">How A, B and C lending works →</a></p>
     <img class="peeker" src="img/cut-35.webp" alt="" decoding="async" width="1000" height="1900">
   </section>
 
@@ -1274,21 +1272,21 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
       <span class="micro">Get in touch</span>
       <h2 class="caps">Let’s start <span class="acc">a&nbsp;conversation</span></h2>
       <div class="invite-lead"><p>Connect with Puneet to discuss where you are today and what you’d like to achieve.</p></div>
-      <a class="btn" href="/puneet-mann-preview/start">Let’s talk</a>
+      <a class="btn" href="/start">Let’s talk</a>
     </div>
     <!-- LOWER BLOCK (2026-10-10, Demo 19 layout 1 "One row", white): same as the site's Footer.astro, kept in step by hand. Icons, not words, for the outside links. -->
     <div class="low"><div class="in">
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
       <div class="row">
         <div>
-          <a class="fmark" href="/puneet-mann-preview/" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
+          <a class="fmark" href="/" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
           <p class="based">Based in Brampton, working with clients across the GTA.</p>
         </div>
         <ul class="flinks">
           <li><a href="#services">Mortgage services</a></li>
-          <li><a href="/puneet-mann-preview/abc-lending">A, B and C lending</a></li>
-          <li><a href="/puneet-mann-preview/calculator">Calculator</a></li>
-          <li><a href="/puneet-mann-preview/about">About</a></li>
+          <li><a href="/abc-lending">A, B and C lending</a></li>
+          <li><a href="/calculator">Calculator</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
         <ul class="ficons">
           <li><a href="https://www.instagram.com/themortgage_mann/" target="_blank" rel="noopener" aria-label="Puneet on Instagram" title="Instagram"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9"/></svg></a></li>
@@ -1298,7 +1296,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
       </div>
       <div class="licence">
         <span>Puneet Mann, Mortgage Agent Level 2 · Dominion Lending Centres Keystone Financial Experts · Brokerage Licence #13654 · Independently owned and operated</span>
-        <span>© 2026 · <a href="/puneet-mann-preview/privacy">Privacy</a></span>
+        <span>© 2026 · <a href="/privacy">Privacy</a></span>
       </div>
     </div></div>
   </footer>
@@ -1986,6 +1984,5 @@ if(d<30){var w=Math.floor(d/7);return w===1?'a week ago':w+' weeks ago';}
 if(d<365){var m=Math.floor(d/30.4);return m<=1?'a month ago':m+' months ago';}
 var y=Math.floor(d/365);return y===1?'a year ago':y+' years ago';}
 [].forEach.call(document.querySelectorAll('time[data-ago]'),function(t){t.textContent=ago(t.getAttribute('datetime'));});})();</script>
-<script src="/puneet-mann-preview/review.js?v=f2c70b74" defer></script>
 </body>
 </html>
