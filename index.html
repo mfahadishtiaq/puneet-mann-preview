@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Puneet Mann, Mortgage Agent Level 2 | The Mortgage Mann</title>
+<title>Puneet Mann, Mortgage Agent Level 2 | Dominion Lending Centres Keystone Financial Experts</title>
 <meta name="description" content="Puneet Mann is a Mortgage Agent Level 2 in Brampton helping business owners, investors, first-time buyers and families moving home across the GTA.">
 <!-- 2026-10-23 launch: the head tags every Astro page gets from Base.astro (canonical, share card, icons, structured data), by hand here
      until the homepage is ported. Facts copied from src/data/site.js: change both together. No review markup (rule 112). -->
 <link rel="canonical" href="https://themortgagemann.ca/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Puneet Mann, Mortgage Agent Level 2 | The Mortgage Mann">
+<meta property="og:title" content="Puneet Mann, Mortgage Agent Level 2 | Dominion Lending Centres Keystone Financial Experts">
 <meta property="og:description" content="Puneet Mann is a Mortgage Agent Level 2 in Brampton helping business owners, investors, first-time buyers and families moving home across the GTA.">
 <meta property="og:url" content="https://themortgagemann.ca/">
 <meta property="og:image" content="https://themortgagemann.ca/img/og-puneet-mann.jpg">
@@ -25,7 +25,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Puneet Mann, Mortgage Agent Level 2","description":"Mortgage Agent in Brampton, Ontario, arranging mortgages with banks, credit unions, alternative and private lenders.","url":"https://themortgagemann.ca/","image":"https://themortgagemann.ca/img/og-puneet-mann.jpg","areaServed":["Brampton","Greater Toronto Area"],"address":{"@type":"PostalAddress","streetAddress":"9280 Goreway Dr, Unit C102","addressLocality":"Brampton","addressRegion":"ON","addressCountry":"CA"},"parentOrganization":{"@type":"Organization","name":"Dominion Lending Centres Keystone Financial Experts","legalName":"Keystone Financial Experts Inc."},"sameAs":["https://www.instagram.com/themortgage_mann/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Mona+Sans:ital,wdth,wght@0,75..125,300..900;1,75..125,300..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Mona+Sans:ital,wdth,wght@0,75..125,300..900;1,75..125,300..900&family=Montserrat:wght@400;700&display=swap">
 <style>
 /* =========================================================
    Tokens. Reference system: landonorris.com (OFF+BRAND).
@@ -123,7 +123,8 @@ html.all-blue .book-slot{border-color:rgba(241,241,239,.3);background:rgba(255,2
 .hdr .right{display:flex;gap:10px;align-items:center}
 html.mark-ink .mark{color:var(--ink)}
 .dlc{position:fixed;left:0;top:0;z-index:30;pointer-events:none;display:none}
-html[data-intro="2"] .dlc{display:block}
+/* html[data-intro="2"] .dlc{display:block}  REMOVED 2026-10-26 (Fahad: "remove dlc logo that comes up in the bottom right"):
+   the bottom-right badge is gone; the logo now lives in the header. The script still moves the hidden element, harmlessly. */
 .dlc-in{width:min(760px,76svh);opacity:0;visibility:hidden}
 /* transparent (Fahad): the REVERSED logo, navy lettering set in white, because the original navy lettering disappears on the page blue */
 .dlc-in img{display:block;width:100%;height:auto}
@@ -677,7 +678,12 @@ svg.g{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px}
 .tn-ds{display:block;font:400 12px/16px var(--sans);color:#55565d;transition:color .3s}
 .tn-col a:hover .tn-ds,.tn-col a:focus-visible .tn-ds{color:var(--ink)}
 .tn-col a:focus-visible{outline:2px solid var(--navy);outline-offset:4px;border-radius:6px}
-@media (min-width:1180px){.about.ab-b{padding-top:calc(11vh + 36px)}} /* room under the solid top bar */
+@media (min-width:1180px){.about.ab-b{padding-top:calc(var(--hdr-h,93px) + 18px)}} /* room under the solid top bar */
+/* 2026-10-26 (Fahad: "the frame doesnt fit entirely inside"): the bigger Keystone logo made the top bar ~30px taller, so the held section's
+   gold frame slid under it. The gap above now follows the bar's MEASURED height, and the portrait is never taller than the room left
+   between the bar and the bottom of the screen. Second pass (Fahad: "you decreased the image way too much"): the portrait is back to its
+   original 78% of the screen; the room comes from the gap above it instead (bar + 18px), and the cap only bites on screens under ~800px */
+@media (min-width:1180px){.ab-b .bound-ph{width:min(100%,calc(min(78svh,100svh - var(--hdr-h,93px) - 60px) * 2 / 3))}}
 
 /* GAP HEADING → section heading hand-off (2026-09-29). Fixed, under the hero (z 1 < .intro z 2), shown only while it runs. */
 .gsvc{position:fixed;inset:0;z-index:1;pointer-events:none;visibility:hidden;opacity:0}
@@ -689,11 +695,27 @@ svg.g{width:14px;height:14px;flex:0 0 14px;vertical-align:-2px}
 @media (max-width:760px){.gsvc-h{white-space:normal;font-size:52px}.gsvc-p{font-size:17px}}
 /* NAV COLOUR PREVIEW (2026-10-05, Fahad: "What if we use the keystone logo blue on the nav bar"): ?nav=blue on any page shows the
    header in the Keystone logo blue (#034383) with white lettering. Preview only; the default stays white until he decides. */
-html.nav-blue .hdr,html.nav-blue .hdr.solid{background:#034383;border-bottom-color:#034383}
-html.nav-blue .hdr .mark,html.nav-blue.mark-ink .hdr .mark{color:#fff}
-html.nav-blue .hdr .tn-link{color:rgba(255,255,255,.92)}
-html.nav-blue .hdr .tn-pill{background:rgba(255,255,255,.14)}
-html.nav-blue .hdr .burger{border-color:#fff;color:#fff}
+/* 2026-10-26 REBRAND (Fahad, board 2026-10-26-logo-header, pick B + name beside the logo): the top bar is WHITE again and carries the
+   Keystone logo + "Puneet Mann / Mortgage Agent Level 2". The five nav-blue HEADER rules were removed here; the nav-blue class stays on
+   <html> because it still styles the service cards. Logo = our redrawn copy until Keystone sends the original. */
+.brand{display:flex;align-items:center;gap:clamp(12px,1.3vw,18px);text-decoration:none;color:#024282}
+/* 2026-10-26 later (Fahad: "copy the logo being used in the dlc keystone website"): the DLC Keystone project's header lockup,
+   stacked Keystone logo + thin rule + the official DLC logo, its sizes (78px / 36px at full width). */
+.brand .ks-full{display:block;height:clamp(58px,5.4vw,78px);width:auto}
+.brand .ks-rule{width:1px;height:clamp(30px,2.9vw,42px);background:currentColor;opacity:.35}
+.brand{--dlc-h:clamp(26px,2.5vw,36px)}
+.brand .dlc-mark{display:block;height:var(--dlc-h);width:auto}
+/* FSRA brokerage licence under the DLC logo (Fahad 2026-10-26: Keystone must show its broker licence when advertising), as on Keystone's own logo */
+.dlc-box{display:flex;flex-direction:column;align-items:center;gap:3px}
+.dlc-box .fsra{font:500 calc(var(--dlc-h) * .268)/1 var(--sans);letter-spacing:0;color:#024282;white-space:nowrap} /* sized to the DLC logo's width (Fahad 2026-10-26: "matches the size of the logo above it") */
+.ks-pair{display:flex;align-items:center;gap:clamp(12px,1.3vw,18px)}
+.brand .who{border-left:1px solid rgba(3,67,131,.35);padding-left:clamp(12px,1.3vw,18px)}
+.brand .who b{display:block;font:700 clamp(15px,1.25vw,18px)/1.15 var(--sans);white-space:nowrap}
+.brand .who span{display:block;font:400 clamp(12.5px,1vw,14px)/1.3 var(--sans);white-space:nowrap;color:#3a3b41}
+.brand:focus-visible{outline:2px solid var(--brass);outline-offset:4px;border-radius:4px}
+/* phones: logo + name + menu button only, as on the picked board; the menu carries "Start a conversation" (2026-10-26) */
+@media (max-width:600px){.hdr .pill{display:none}}
+.fbrand{display:inline-flex}
 /* BLUE-NAV VERSION (2026-10-06, Fahad: "The Blue Nav Bar: Remove any blue shading from pictures"): the service cards' navy fade
    into the photo goes; the navy band above the photo stays (it is not on the picture). Same rule as site.css. */
 html.nav-blue .card-top::after{display:none}
@@ -935,6 +957,16 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
   .menu.open::before,.menu.open::after,.menu.open nav a .mt,.menu.open nav a::before,.menu.open .foot{animation:none}
   .menu::before{display:none}.menu::after,.menu nav a .mt{transform:none}.menu nav a::before,.menu .foot{opacity:1}
 }
+
+/* WHITE AND GREY BANDS ON COMPUTERS (2026-10-26, Fahad picked it from the look preview: "lets keep white and grey"). The phone
+   bands of 2026-10-15 (same sections, same order) carried to computers, each white band full width. (Was a localhost-only switch.) */
+@media (min-width:761px){
+  html .sit:is(.svcp,.abp,.abcp,.calcp) .bighero{margin-bottom:0}
+  html .sit:is(.svcp,.abp,.abcp) .wrap > .sec{margin:0;padding:clamp(72px,12vh,128px) 0}
+  html .svcp .wrap > .sec:nth-child(odd),html :is(.abp,.abcp) .wrap > .sec:nth-child(even),html .calcp .calcs,
+  html .svc,html .revs,html .vids{background:#fff;box-shadow:0 0 0 100vmax #fff;clip-path:inset(0 -100vmax)}
+  html .calcp .calcs{padding-top:clamp(72px,12vh,128px);padding-bottom:clamp(72px,12vh,128px)}
+}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 <script>document.documentElement.classList.add('nav-blue');/* BLUE NAV DECIDED 2026-10-10 (was a ?nav=blue test switch) */</script>
@@ -966,7 +998,15 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
 <canvas id="town" aria-hidden="true"></canvas>
 
 <header class="hdr">
-  <a class="mark" href="#top" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
+  <!-- 2026-10-26 REBRAND: Keystone logo + his name (same markup as components/Header.astro) -->
+  <a class="brand" href="#top" aria-label="Dominion Lending Centres Keystone Financial Experts, home"><svg class="ks-full" viewBox="0 0 598 360" role="img" aria-label="Keystone Financial Experts"><defs><linearGradient id="ksg-h" x1="0" y1="0" x2="1" y2="0.35"><stop offset="0" stop-color="#C79A3E"/><stop offset=".45" stop-color="#F1D88E"/><stop offset=".7" stop-color="#E2BF66"/><stop offset="1" stop-color="#B9893A"/></linearGradient></defs>
+<path fill="currentColor" d="M164 61 226 34 252 192 207 192Z"/>
+<path fill="currentColor" d="M434 61 372 34 346 192 391 192Z"/>
+<path fill="url(#ksg-h)" d="M231 0H367L339 192H259Z"/>
+<circle fill="currentColor" cx="299" cy="82" r="15.5"/><path fill="currentColor" d="M292 92H306L311 131H287Z"/>
+<rect fill="currentColor" x="0" y="196" width="598" height="9"/>
+<text x="299" y="283" text-anchor="middle" textLength="598" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, sans-serif" font-weight="700" font-size="90" fill="currentColor">KEYSTONE</text>
+<text x="299" y="349" text-anchor="middle" textLength="384" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, sans-serif" font-weight="400" font-size="46" fill="currentColor">Financial Experts</text></svg><span class="ks-rule" aria-hidden="true"></span><span class="dlc-box"><img class="dlc-mark" src="img/dlc-logo.svg" alt="" width="283" height="128"><span class="fsra">FSRA Lic # 13654</span></span></a>
   <span class="scrollcue micro" aria-hidden="true">Mortgage Agent Level 2 · Brampton</span>
   <!-- links across the top (Fahad 2026-09-29); Demo 04's sliding-pill drop-down (2026-10-01), driven by js/nav.js.
        SAME markup as the Astro site's components/Header.astro: change both together. Phones keep the menu button. -->
@@ -1297,7 +1337,14 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
       <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
       <div class="row">
         <div>
-          <a class="fmark" href="/" aria-label="The Mortgage Mann, home"><span class="l1">The Mortgage</span><span class="l2">Mann</span></a>
+          <a class="brand fbrand" href="/" aria-label="Dominion Lending Centres Keystone Financial Experts, home"><span class="ks-pair"><svg class="ks-full" viewBox="0 0 598 360" role="img" aria-label="Keystone Financial Experts"><defs><linearGradient id="ksg-f" x1="0" y1="0" x2="1" y2="0.35"><stop offset="0" stop-color="#C79A3E"/><stop offset=".45" stop-color="#F1D88E"/><stop offset=".7" stop-color="#E2BF66"/><stop offset="1" stop-color="#B9893A"/></linearGradient></defs>
+<path fill="currentColor" d="M164 61 226 34 252 192 207 192Z"/>
+<path fill="currentColor" d="M434 61 372 34 346 192 391 192Z"/>
+<path fill="url(#ksg-f)" d="M231 0H367L339 192H259Z"/>
+<circle fill="currentColor" cx="299" cy="82" r="15.5"/><path fill="currentColor" d="M292 92H306L311 131H287Z"/>
+<rect fill="currentColor" x="0" y="196" width="598" height="9"/>
+<text x="299" y="283" text-anchor="middle" textLength="598" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, sans-serif" font-weight="700" font-size="90" fill="currentColor">KEYSTONE</text>
+<text x="299" y="349" text-anchor="middle" textLength="384" lengthAdjust="spacingAndGlyphs" font-family="Montserrat, sans-serif" font-weight="400" font-size="46" fill="currentColor">Financial Experts</text></svg><span class="ks-rule" aria-hidden="true"></span><span class="dlc-box"><img class="dlc-mark" src="img/dlc-logo.svg" alt="" width="283" height="128" loading="lazy"><span class="fsra">FSRA Lic # 13654</span></span></span><span class="who"><b>Puneet Mann</b><span>Mortgage Agent Level 2</span></span></a>
           <p class="based">Based in Brampton, working with clients across the GTA.</p>
         </div>
         <ul class="flinks">
@@ -1495,7 +1542,7 @@ html.nav-blue .cards-nav button{border-color:rgba(22,23,27,.18)}
   if(window.__loaderOn){if(window.__lenis)window.__lenis.stop();window.__afterLoader.push(function(){intro.play();if(window.__lenis)window.__lenis.start();});}
   intro.from('.split-photo img',{scale:1.08,duration:1.8})
        .from('.split-copy .micro, .split-copy h1, .split-copy p, .split-copy .acts, .split-copy .langs',{y:34,opacity:0,duration:1.1,stagger:.08},.2)
-       .from('.mark .l1,.mark .l2',{yPercent:110,opacity:0,duration:1.1,stagger:.08},.2)
+       .from('.hdr .brand > *',{yPercent:110,opacity:0,duration:1.1,stagger:.08},.2)
        .from('.topnav .tn-item, .hdr .right > *',{y:-20,opacity:0,duration:.9,stagger:.06},.5);
 
   var mm=gsap.matchMedia();
